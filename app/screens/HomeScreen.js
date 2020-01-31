@@ -3,6 +3,7 @@ import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import {
   Image,
+  ImageBackground,
   Platform,
   ScrollView,
   StyleSheet,
@@ -16,20 +17,20 @@ import { MonoText } from '../components/StyledText';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <ScrollView
+      <View
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
-        <Image
-          source={require('../assets/images/start.png')}
-          style={styles.welcomeImage}
-        />
-        <View style={styles.welcomeContainer}>
+
+        <ImageBackground style={styles.welcomeImage} source={require('../assets/images/start.png')}>
+
+          <View style={styles.welcomeContainer}>
+            <Text>hol</Text>
+          </View>
+        </ImageBackground>
 
 
 
-        </View>
-
-      </ScrollView>
+      </View>
     </View>
   );
 }
@@ -57,6 +58,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#4E7EB2',
+    marginTop: 15,
   },
   developmentModeText: {
     marginBottom: 20,
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
   welcomeImage: {
     width: 360,
     height: 600,
-    
+
 
   },
   getStartedContainer: {
