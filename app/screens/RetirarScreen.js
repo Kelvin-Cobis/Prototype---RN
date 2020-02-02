@@ -1,15 +1,18 @@
 import React from 'react';
-import { ScrollView, StyleSheet, ImageBackground } from 'react-native';
+import { ScrollView, StyleSheet,ImageBackground } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
-export default function LinksScreen() {
+export default function RetirarScreen() {
   return (
-    <ImageBackground style={styles.welcomeImage} source={require('../assets/images/pagar.png')} />
+    
+
+      <ImageBackground style={styles.welcomeImage} source={require('../assets/images/cobrar.png')} />
+  
   );
 }
 
-LinksScreen.navigationOptions = {
-  title: 'Pagar',
+RetirarScreen.navigationOptions = {
+  title: 'Retirar',
 };
 
 const styles = StyleSheet.create({

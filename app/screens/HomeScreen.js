@@ -1,143 +1,49 @@
-
+import { Avatar } from 'react-native-material-ui';
+import { Container, Header, Content, Icon } from 'native-base';
 import * as WebBrowser from 'expo-web-browser';
-import React from 'react';
+import React, { Component } from 'react';
+import { TouchableNativeFeedback } from 'react-native';
+
 import {
   Image,
   ImageBackground,
   Platform,
-  ScrollView,
+  TouchableHighlight,
   StyleSheet,
   Text,
   TouchableOpacity,
+  Button,
   View,
 } from 'react-native';
 
-import { MonoText } from '../components/StyledText';
 
-export default function HomeScreen() {
-  return (
-    <View style={styles.container}>
-      <View
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
+export default class HomeScreen extends Component {
 
-        <ImageBackground style={styles.welcomeImage} source={require('../assets/images/start.png')}>
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <ImageBackground style={styles.welcomeImage} source={require('../assets/images/inicio.png')} />
+    )
+  }
 
-          <View style={styles.welcomeContainer}>
-            <Text>hol</Text>
-          </View>
-        </ImageBackground>
-
-
-
-      </View>
-    </View>
-  );
 }
 
 HomeScreen.navigationOptions = {
-  header: null,
+  title: 'Saldo',
 };
-
-
-
-/*
-class AvatarSpec extends Component {
-  render() {
-      return (
-          
-              <View style={styles.welcomeContainer}>
-                  <Avatar icon="person" text = "Crear Cuenta"/>
-              </View>
-          
-      );
-  }
-}*/
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4E7EB2',
+    backgroundColor: '#ffffff',
     marginTop: 15,
-  },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
-  contentContainer: {
-    paddingTop: 30,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-
   },
   welcomeImage: {
-    width: 360,
-    height: 600,
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
 
-
-  },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
 });

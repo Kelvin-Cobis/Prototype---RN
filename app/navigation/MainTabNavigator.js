@@ -7,6 +7,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import RetirarScreen from '../screens/RetirarScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -21,13 +22,13 @@ const HomeStack = createStackNavigator(
 );
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home', tabBarIcon: ({ focused }) => (
+  tabBarLabel: 'Inicio', tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
         Platform.OS === 'ios'
           ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          : 'md-home'
       }
     />
   ),
@@ -43,34 +44,52 @@ const LinksStack = createStackNavigator(
 );
 
 LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+  tabBarLabel: 'Pagar',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-cash'} />
   ),
 };
 
 LinksStack.path = '';
 
 const SettingsStack = createStackNavigator(
+  { Settings: SettingsScreen, },
+  config
+);
+SettingsStack.navigationOptions = {
+  tabBarLabel: 'Cobrar',
+  tabBarIcon: ({ focused }) => (<TabBarIcon focused={focused}
+    name={Platform.OS === 'ios' ? 'ios-options' : 'logo-usd'} />
+  ),
+};
+SettingsStack.path = '';
+
+
+const RetirarStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Retirar: RetirarScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+RetirarStack.navigationOptions = {
+  tabBarLabel: 'Retirar',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-card'} />
   ),
 };
 
-SettingsStack.path = '';
+RetirarStack.path = '';
+
+
+
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,
+  RetirarStack,
+
 });
 
 tabNavigator.path = '';
