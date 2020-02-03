@@ -1,29 +1,58 @@
-import {
-    Image,
-    ImageBackground,
-    Platform,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-  } from 'react-native';
-import React, { Component } from 'react';
 import { Avatar } from 'react-native-material-ui';
-    
-export default class IconExample extends Component {
-    
-    render() {
-        return(
-        <View>
-            <Avatar text="A" />
-    
-            <Avatar icon="grade" />
-            <Avatar icon="person" iconColor="blue" iconSize={35}/>
-            <Avatar icon="history" iconSize={20} />
-            <Avatar icon="mic" size={75} />
-        </View>
-        );
+import { Container, Header, Title, Button, Icon, Left, Right, Body } from "native-base";
+import * as WebBrowser from 'expo-web-browser';
+import React, { Component } from 'react';
+import { TouchableNativeFeedback } from 'react-native';
 
-    }
+import {
+  Image,
+  ImageBackground,
+  Platform,
+  TouchableHighlight,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+
+  View,
+} from 'react-native';
+
+
+export default class HomeScreen extends Component {
+
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <ImageBackground style={styles.welcomeImage} source={require('../assets/images/inicio.png')} />
+    )
+  }
+
 }
+
+HomeScreen.navigationOptions = {
+  title: 'Saldo',
+  headerRight: () => (
+    
+    <Right>
+    <Button transparent>
+      <Icon name="menu" />
+    </Button>
+  </Right>
+  ),
+
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+    marginTop: 15,
+  },
+  welcomeImage: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+
+});

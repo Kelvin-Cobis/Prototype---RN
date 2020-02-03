@@ -16,6 +16,6 @@ export default createAppContainer(
     Autenticacion :CredentialScreen,
   },
   {
-    initialRouteName: 'Index',
+    initialRouteName: 'Icon',
   })
 );

@@ -1,5 +1,5 @@
 import { Avatar } from 'react-native-material-ui';
-import { Container, Header, Content, Icon } from 'native-base';
+import { Container, Header, Title, Button, Icon, Left, Right, Body } from "native-base";
 import * as WebBrowser from 'expo-web-browser';
 import React, { Component } from 'react';
 import { TouchableNativeFeedback } from 'react-native';
@@ -12,7 +12,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  Button,
+
   View,
 } from 'react-native';
 
@@ -31,11 +31,12 @@ export default class HomeScreen extends Component {
 HomeScreen.navigationOptions = {
   title: 'Saldo',
   headerRight: () => (
-    <Button
-      onPress={() => alert('This is a button!')}
-      title="Info"
-      color="#4E7EB2"
-    />
+    
+    <Right>
+    <Button transparent>
+      <Icon name="more" />
+    </Button>
+  </Right>
   ),
 
 };
