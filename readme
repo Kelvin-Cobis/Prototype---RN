@@ -1,0 +1,4 @@
+npm install 
+npm install prop-types --save
+npm install native-base --save
+
