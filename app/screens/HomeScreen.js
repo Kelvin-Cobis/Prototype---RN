@@ -30,6 +30,14 @@ export default class HomeScreen extends Component {
 
 HomeScreen.navigationOptions = {
   title: 'Saldo',
+  headerRight: () => (
+    <Button
+      onPress={() => alert('This is a button!')}
+      title="Info"
+      color="#4E7EB2"
+    />
+  ),
+
 };
 
 const styles = StyleSheet.create({
