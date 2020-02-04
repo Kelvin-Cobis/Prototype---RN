@@ -36,14 +36,14 @@ export default class IndexScreen extends Component {
 
             <View style={styles.welcomeContent}>
 
-              <TouchableOpacity onPress={() => this.props.navigation.navigate('Autenticacion')}
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('Credential')}
                 style={styles.avatarContainer}>
 
                 <Image source={require('../assets/images/crearCuenta.png')} />
 
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => this.props.navigation.navigate('Autenticacion')}
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('Credential')}
                 style={styles.avatarContainer}>
 
                 <Image source={require('../assets/images/yaTengoCuenta.png')} />

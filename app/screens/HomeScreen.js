@@ -1,45 +1,36 @@
-import { Avatar } from 'react-native-material-ui';
-import { Container, Header, Title, Button, Icon, Left, Right, Body } from "native-base";
-import * as WebBrowser from 'expo-web-browser';
 import React, { Component } from 'react';
-import { TouchableNativeFeedback } from 'react-native';
+import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text, View } from 'native-base';
 
-import {
-  Image,
-  ImageBackground,
-  Platform,
-  TouchableHighlight,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
 
-  View,
-} from 'react-native';
+import { StyleSheet, Button } from 'react-native';
 
 
 export default class HomeScreen extends Component {
 
-  render() {
+
+  constructor(props) {
+    super(props);
     const { navigate } = this.props.navigation;
-    return (
-      <ImageBackground style={styles.welcomeImage} source={require('../assets/images/inicio.png')} />
-    )
   }
 
+  static navigationOptions = ({ navigation, screenProps }) => ({
+    headerTitle: 'Saldo',
+    headerRight:
+      <Button
+        onPress={() => navigation.navigate('Index')}
+        title="Info"
+        color="#fff"
+      />
+  });
+
+  render() {
+
+    return (
+      <View />
+    )
+  }
 }
 
-HomeScreen.navigationOptions = {
-  title: 'Saldo',
-  headerRight: () => (
-    
-    <Right>
-    <Button transparent>
-      <Icon name="more" />
-    </Button>
-  </Right>
-  ),
-
-};
 
 const styles = StyleSheet.create({
   container: {
@@ -53,6 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
+    backgroundColor: '#4E7EB2',
   },
 
 });

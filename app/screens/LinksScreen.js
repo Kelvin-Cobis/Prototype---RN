@@ -10,6 +10,13 @@ export default function LinksScreen() {
 
 LinksScreen.navigationOptions = {
   title: 'Pagar',
+  headerRight: () => (
+    <Button
+      onPress={() => alert('This is a button!')}
+      title="Info"
+      color="#fff"
+    />
+  ),
 };
 
 const styles = StyleSheet.create({

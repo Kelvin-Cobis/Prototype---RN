@@ -1,21 +1,36 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
+import TestScreen from '../screens/TestScreen';
 import MainTabNavigator from './MainTabNavigator';
-import IndexScreen from '../screens/IndexScreen';
-import IconScreen from '../screens/IconScreen';
 import CredentialScreen from '../screens/CredentialScreen';
+import HomeScreen from '../screens/HomeScreen';
+import IndexScreen from '../screens/IndexScreen';
+import LinksScreen from '../screens/LinksScreen';
+import RetirarScreen from '../screens/RetirarScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+
+
+
 
 export default createAppContainer(
   createSwitchNavigator({
     // You could add another route here for authentication.
     // Read more at https://reactnavigation.org/docs/en/auth-flow.html
-    Index: IndexScreen,
+    Test: TestScreen,
     Main: MainTabNavigator,
-    Icon:IconScreen,
-    Autenticacion :CredentialScreen,
+    Credential: CredentialScreen,
+    Home: HomeScreen,
+    Index: IndexScreen,
+    Link: LinksScreen,
+    Retirar: RetirarScreen,
+    Settings: SettingsScreen,
+
+
+
   },
-  {
-    initialRouteName: 'Icon',
-  })
+    {
+      initialRouteName: 'Index',
+    })
 );

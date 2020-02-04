@@ -8,6 +8,9 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import RetirarScreen from '../screens/RetirarScreen';
+import IndexScreen from '../screens/IndexScreen';
+
+
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
