@@ -1,4 +1,4 @@
-import { Avatar } from 'react-native-material-ui';
+
 import { Container, Header, Content, Icon } from 'native-base';
 import * as WebBrowser from 'expo-web-browser';
 import React, { Component } from 'react';

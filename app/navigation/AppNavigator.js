@@ -31,6 +31,6 @@ export default createAppContainer(
 
   },
     {
-      initialRouteName: 'Index',
+      initialRouteName: 'Test',
     })
 );

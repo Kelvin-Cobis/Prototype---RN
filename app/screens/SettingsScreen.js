@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { ExpoConfigView } from '@expo/samples';
 import { ScrollView, StyleSheet, ImageBackground , View, Button} from 'react-native';
 
 export default class SettingsScreen extends Component {

@@ -16,7 +16,7 @@ export default class HomeScreen extends Component {
   static navigationOptions = ({ navigation, screenProps }) => ({
     headerTitle: 'Saldo',
     headerRight:
-      <View>
+      <View styles={{marginHorizontal:10}}>
         <Button
           onPress={() => navigation.navigate('Index')}
           title="Salir"
