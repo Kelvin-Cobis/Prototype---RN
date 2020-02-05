@@ -22,5 +22,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#4E7EB2',
+    
   },
 });

@@ -10,6 +10,7 @@ import IndexScreen from '../screens/IndexScreen';
 import LinksScreen from '../screens/LinksScreen';
 import RetirarScreen from '../screens/RetirarScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import SignInScreen from '../screens/SignInScreen';
 
 
 
@@ -26,11 +27,12 @@ export default createAppContainer(
     Link: LinksScreen,
     Retirar: RetirarScreen,
     Settings: SettingsScreen,
+    SignIn: SignInScreen,
 
 
 
   },
     {
-      initialRouteName: 'Test',
+      initialRouteName: 'Index',
     })
 );

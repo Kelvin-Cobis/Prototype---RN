@@ -1,5 +1,4 @@
-import { Avatar } from 'react-native-material-ui';
-import { Container, Header, Content, Icon } from 'native-base';
+
 import * as WebBrowser from 'expo-web-browser';
 import React, { Component } from 'react';
 import { TouchableNativeFeedback } from 'react-native';
@@ -16,7 +15,7 @@ import {
   View,
 } from 'react-native';
 
-import { MonoText } from '../components/StyledText';
+
 
 
 
@@ -36,7 +35,7 @@ export default class IndexScreen extends Component {
 
             <View style={styles.welcomeContent}>
 
-              <TouchableOpacity onPress={() => this.props.navigation.navigate('Credential')}
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('SignIn')}
                 style={styles.avatarContainer}>
 
                 <Image source={require('../assets/images/crearCuenta.png')} />
