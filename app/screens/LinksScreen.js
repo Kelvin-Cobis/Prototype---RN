@@ -1,23 +1,34 @@
-import React from 'react';
-import { ScrollView, StyleSheet, ImageBackground } from 'react-native';
+import React, { Component } from 'react';
+import { ScrollView, StyleSheet, ImageBackground ,View, Button} from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
-export default function LinksScreen() {
-  return (
-    <ImageBackground style={styles.welcomeImage} source={require('../assets/images/pagar.png')} />
-  );
+export default class LinksScreen extends Component{
+
+
+  constructor(props) {
+    super(props);
+    const { navigate } = this.props.navigation;
+  }
+
+  static navigationOptions = ({ navigation, screenProps }) => ({
+    headerTitle: 'Pagar',
+    headerRight:
+      <View>
+        <Button
+          onPress={() => navigation.navigate('Index')}
+          title="Salir"
+          color="#4E7EB2"
+        />
+      </View>
+
+  });
+  render(){
+    return (
+      <ImageBackground style={styles.welcomeImage} source={require('../assets/images/pagar.png')} />
+    );
+  }
 }
 
-LinksScreen.navigationOptions = {
-  title: 'Pagar',
-  headerRight: () => (
-    <Button
-      onPress={() => alert('This is a button!')}
-      title="Info"
-      color="#fff"
-    />
-  ),
-};
 
 const styles = StyleSheet.create({
   container: {

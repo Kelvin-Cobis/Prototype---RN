@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text, View } from 'native-base';
+import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text } from 'native-base';
 
 
-import { StyleSheet, Button } from 'react-native';
+import { StyleSheet, Button, View } from 'react-native';
 
 
 export default class HomeScreen extends Component {
@@ -16,17 +16,25 @@ export default class HomeScreen extends Component {
   static navigationOptions = ({ navigation, screenProps }) => ({
     headerTitle: 'Saldo',
     headerRight:
-      <Button
-        onPress={() => navigation.navigate('Index')}
-        title="Info"
-        color="#fff"
-      />
+      <View>
+        <Button
+          onPress={() => navigation.navigate('Index')}
+          title="Salir"
+          color="#4E7EB2"
+        />
+      </View>
+
   });
 
   render() {
 
     return (
-      <View />
+      <View>
+        <View>
+
+          
+        </View>
+      </View>
     )
   }
 }
@@ -45,6 +53,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'column',
     backgroundColor: '#4E7EB2',
+  },
+  backButton: {
+    marginHorizontal: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
 });

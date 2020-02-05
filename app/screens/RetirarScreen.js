@@ -1,19 +1,37 @@
-import React from 'react';
-import { ScrollView, StyleSheet,ImageBackground } from 'react-native';
+import React, { Component } from 'react';
+import { ScrollView, StyleSheet, ImageBackground , View, Button} from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
-export default function RetirarScreen() {
-  return (
-    
+export default class RetirarScreen extends Component {
+
+  constructor(props) {
+    super(props);
+    const { navigate } = this.props.navigation;
+  }
+
+  static navigationOptions = ({ navigation, screenProps }) => ({
+    headerTitle: 'Retirar',
+    headerRight:
+      <View >
+        <Button
+          onPress={() => navigation.navigate('Index')}
+          title="Salir"
+          color="#4E7EB2"
+        />
+      </View>
+
+  });
+
+  render() {
+    return (
+
 
       <ImageBackground style={styles.welcomeImage} source={require('../assets/images/cobrar.png')} />
-  
-  );
+
+    );
+  }
 }
 
-RetirarScreen.navigationOptions = {
-  title: 'Retirar',
-};
 
 const styles = StyleSheet.create({
   container: {

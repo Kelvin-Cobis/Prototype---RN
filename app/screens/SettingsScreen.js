@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { ExpoConfigView } from '@expo/samples';
-import { ScrollView, StyleSheet, ImageBackground } from 'react-native';
+import { ScrollView, StyleSheet, ImageBackground , View, Button} from 'react-native';
 
-export default function SettingsScreen() {
-  /**
-   * Go ahead and delete ExpoConfigView and replace it with your content;
-   * we just wanted to give you a quick view of your config.
-   */
-  return(
+export default class SettingsScreen extends Component {
 
-    <ImageBackground style={styles.welcomeImage} source={require('../assets/images/cobrar.png')} />
-  );
+
+  constructor(props) {
+    super(props);
+    const { navigate } = this.props.navigation;
+  }
+
+  static navigationOptions = ({ navigation, screenProps }) => ({
+    headerTitle: 'Cobrar',
+    headerRight:
+      <View>
+        <Button
+          onPress={() => navigation.navigate('Index')}
+          title="Salir"
+          color="#4E7EB2"
+        />
+      </View>
+
+  });
+  render() {
+    return (
+
+      <ImageBackground style={styles.welcomeImage} source={require('../assets/images/cobrar.png')} />
+    );
+  }
 }
 
-SettingsScreen.navigationOptions = {
-  title: 'Cobrar',
-};
 
 const styles = StyleSheet.create({
   container: {
