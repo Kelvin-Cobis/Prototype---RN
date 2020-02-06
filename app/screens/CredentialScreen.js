@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#4E7EB2',
-        marginTop: 15,
+        
     },
     bigWhite: {
         color: 'white',

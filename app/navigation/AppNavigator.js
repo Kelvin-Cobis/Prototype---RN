@@ -12,27 +12,35 @@ import RetirarScreen from '../screens/RetirarScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import SignInScreen from '../screens/SignInScreen';
 
+autnticacion = createStackNavigator({
+  Index: IndexScreen,
+  SignIn: SignInScreen,
+  Credential: CredentialScreen,
 
+});
 
 
 export default createAppContainer(
+  
   createSwitchNavigator({
     // You could add another route here for authentication.
     // Read more at https://reactnavigation.org/docs/en/auth-flow.html
-    Test: TestScreen,
+    
     Main: MainTabNavigator,
-    Credential: CredentialScreen,
+    /*Credential: CredentialScreen,
     Home: HomeScreen,
     Index: IndexScreen,
     Link: LinksScreen,
     Retirar: RetirarScreen,
     Settings: SettingsScreen,
-    SignIn: SignInScreen,
+    SignIn: SignInScreen,*/
+    Aut: autnticacion,
+    Test: TestScreen,
 
 
 
   },
     {
-      initialRouteName: 'Index',
+      initialRouteName: 'Test',
     })
 );

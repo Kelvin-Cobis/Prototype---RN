@@ -96,11 +96,7 @@ export default class HomeScreen extends Component {
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ffffff',
-    marginTop: 15,
-  },
+  
   welcomeImage: {
     width: '100%',
     height: '100%',

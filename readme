@@ -6,3 +6,4 @@ npm install recompose
 npm install yup
 npm install react-native-formik
 npm install tcomb-form-native
+npm install react-native-elements

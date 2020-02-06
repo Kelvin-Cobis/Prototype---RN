@@ -157,7 +157,7 @@ export default class SignIn extends Component {
 
                     <TouchableOpacity
                       style={{
-                        width: 150,
+                        width: 135,
                         height: 45,
                         marginHorizontal: 10,
                         borderRadius: 30,
@@ -167,12 +167,12 @@ export default class SignIn extends Component {
                       }}
                       onPress={formikProps.handleSubmit}
                     >
-                      <Text style={{ color: '#ffffff' }}>Continuar</Text>
+                      <Text style={{ color: '#ffffff' ,  fontSize: 12 }}>Continuar</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
                       style={{
-                        width: 150,
+                        width: 135,
                         height: 45,
                         marginHorizontal: 10,
                         borderRadius: 30,
@@ -182,7 +182,7 @@ export default class SignIn extends Component {
                       }}
                       onPress={() => this.props.navigation.navigate('Index')}
                     >
-                      <Text style={{ color: '#ffffff' }}>Salir</Text>
+                      <Text style={{ color: '#ffffff' ,  fontSize: 12  }}>Salir</Text>
                     </TouchableOpacity>
 
 
@@ -199,6 +199,10 @@ export default class SignIn extends Component {
   }
 }
 
+SignIn.navigationOptions={
+
+  header:null
+};
 
 const styles = StyleSheet.create({
   container: {
