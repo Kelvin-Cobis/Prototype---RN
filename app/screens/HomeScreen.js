@@ -16,7 +16,7 @@ export default class HomeScreen extends Component {
   static navigationOptions = ({ navigation, screenProps }) => ({
     headerTitle: 'Saldo',
     headerRight:
-      <View styles={{ marginHorizontal: 10 }}>
+      <View style={styles.backButton}>
         <Button
           onPress={() => navigation.navigate('Index')}
           title="Salir"
@@ -29,106 +29,67 @@ export default class HomeScreen extends Component {
   render() {
 
     return (
-      <View>
-        <View style={styles.saldo}>
-          <View style={{ marginTop: 20 }}>
-            <Thumbnail large source={require('../assets/images/person.jpg')} />
-          </View>
+      <View style={styles.transacciones}>
+        <Content>
+          <List>
+            <View style={styles.informacion}>
+              <Thumbnail large source={require('../assets/images/person.jpg')} />
+              <Text style={{ fontSize: 20 }}>Francisco Mendoza</Text>
+              <View style={{ alignItems: "center" }}>
+                <Text style={{ fontSize: 10, color: 'grey' }}>Mi saldo</Text>
+                <Text style={{ fontSize: 25 }}>$250.00</Text>
+              </View>
 
-
-
-        </View>
-        <View style={styles.transacciones}>
-          <Text>Transacciones Pendientes </Text>
-          <Content>
-            <List>
-              <ListItem avatar>
-                <Left>
-                  <Thumbnail source={require('../assets/images/person.jpg')} />
-                </Left>
-                <Body>
-                  <Text>Kumar Pratik</Text>
-                  <Text note>Doing what you like will always keep you happy . .</Text>
-                </Body>
-                <Right>
-                  <Text note>3:43 pm</Text>
-                </Right>
-              </ListItem>
-              <ListItem avatar>
-                <Left>
-                  <Thumbnail source={require('../assets/images/person.jpg')} />
-                </Left>
-                <Body>
-                  <Text>Kumar Pratik</Text>
-                  <Text note>Doing what you like will always keep you happy . .</Text>
-                </Body>
-                <Right>
-                  <Text note>3:43 pm</Text>
-                </Right>
-              </ListItem>
-              <ListItem avatar>
-                <Left>
-                  <Thumbnail source={require('../assets/images/person.jpg')} />
-                </Left>
-                <Body>
-                  <Text>Kumar Pratik</Text>
-                  <Text note>Doing what you like will always keep you happy . .</Text>
-                </Body>
-                <Right>
-                  <Text note>3:43 pm</Text>
-                </Right>
-              </ListItem>
-            </List>
-          </Content>
-
-        </View>
-        <View style={styles.transacciones}>
-          <Text>Transacciones anteriores</Text>
-          <Content>
-            <List>
-              <ListItem avatar>
-                <Left>
-                  <Thumbnail source={require('../assets/images/person.jpg')} />
-                </Left>
-                <Body>
-                  <Text>Kumar Pratik</Text>
-                  <Text note>Doing what you like will always keep you happy . .</Text>
-                </Body>
-                <Right>
-                  <Text note>3:43 pm</Text>
-                </Right>
-              </ListItem>
-              <ListItem avatar>
-                <Left>
-                  <Thumbnail source={require('../assets/images/person.jpg')} />
-                </Left>
-                <Body>
-                  <Text>Kumar Pratik</Text>
-                  <Text note>Doing what you like will always keep you happy . .</Text>
-                </Body>
-                <Right>
-                  <Text note>3:43 pm</Text>
-                </Right>
-              </ListItem>
-              <ListItem avatar>
-                <Left>
-                  <Thumbnail source={require('../assets/images/person.jpg')} />
-                </Left>
-                <Body>
-                  <Text>Kumar Pratik</Text>
-                  <Text note>Doing what you like will always keep you happy . .</Text>
-                </Body>
-                <Right>
-                  <Text note>3:43 pm</Text>
-                </Right>
-              </ListItem>
-            </List>
-          </Content>
-
-
-        </View>
+            </View>
+            <Text style={{ fontSize: 12, color: 'grey' }}>
+              Transacciones pendientes
+               </Text>
+                       
+            <ListItem avatar>
+              <Left>
+                <Thumbnail source={require('../assets/images/person.jpg')} />
+              </Left>
+              <Body>
+                <Text>Pago JC</Text>
+                <Text note>Doing what you like will always keep you happy . .</Text>
+              </Body>
+              <Right>
+                <Text note>3:43 pm</Text>
+              </Right>
+            </ListItem>
+            <Text style={{ fontSize: 12, color: 'grey' }}>
+              Transacciones anteriores
+               </Text>
+                  
+            <ListItem avatar>
+              <Left>
+                <Thumbnail source={require('../assets/images/person.jpg')} />
+              </Left>
+              <Body>
+                <Text>Kumar Pratik</Text>
+                <Text note>Doing what you like will always keep you happy . .</Text>
+              </Body>
+              <Right>
+                <Text note>3:43 pm</Text>
+              </Right>
+            </ListItem>
+            <ListItem avatar>
+              <Left>
+                <Thumbnail source={require('../assets/images/person.jpg')} />
+              </Left>
+              <Body>
+                <Text>Kumar Pratik</Text>
+                <Text note>Doing what you like will always keep you happy . .</Text>
+              </Body>
+              <Right>
+                <Text note>3:43 pm</Text>
+              </Right>
+            </ListItem>
+          </List>
+        </Content>
 
       </View>
+
     )
   }
 }
@@ -149,24 +110,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#4E7EB2',
   },
   backButton: {
-    marginHorizontal: 30,
+    marginHorizontal: 10,
     justifyContent: 'center',
-    alignItems: 'center',
-  },
-  saldo: {
-    width: '100%',
-    height: 200,
-    justifyContent: 'flex-start',
-    borderWidth: 0.5,
-    borderColor: 'grey',
     alignItems: 'center',
   },
   transacciones: {
     width: '100%',
-    height: 140,
-
-    borderWidth: 0.5,
-    borderColor: 'grey',
+    height: '100%',
+  },
+  informacion: {
+    marginTop: 10,
+    marginBottom: 10,
+    width: '100%',
+    height: 200,
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
 
 });

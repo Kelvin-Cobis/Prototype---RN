@@ -5,7 +5,7 @@ import {
   Button,
   ActivityIndicator,
   Text, Image,
-  View ,StyleSheet, 
+  View, StyleSheet, TouchableOpacity
 } from 'react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -28,11 +28,14 @@ export default class SignIn extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <SafeAreaView style={{ backgroundColor:'#ffffff'}}>
+      <SafeAreaView style={{
+        backgroundColor: '#ffffff', width: '100%', height: '100%',
+      }}>
         <View style={styles.welcomeImage} >
-
-        <Image source={require('../assets/images/logo-cobis-digital.png')}/>
-
+          <Image source={require('../assets/images/logo-cobis-digital.png')} />
+        </View>
+        <View style={{ marginLeft: 10, margin: 15 }}>
+          <Text style={{ fontSize: 25, color: 'black' }}>Creación de cuenta</Text>
         </View>
         <Formik
           initialValues={{ email: '', password: '' }}
@@ -46,53 +49,150 @@ export default class SignIn extends Component {
         >
           {formikProps => (
             <React.Fragment>
-              <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
-                <Text style={{ marginBottom: 3 }}>Email</Text>
-                <TextInput
-                  placeholder="johndoe@example.com"
-                  style={{
-                    borderWidth: 1,
-                    borderColor: 'black',
-                    padding: 10,
-                    marginBottom: 3,
-                  }}
-                  onChangeText={formikProps.handleChange('email')}
-                  onBlur={formikProps.handleBlur('email')}
-                  autoFocus
-                />
-                <Text style={{ color: 'red' }}>
+              <View style={{ flexDirection: 'row' }}>
+                <View style={{ marginLeft: 20, marginVertical: 5, marginRight: 10 }}>
+                  <TextInput
+                    placeholder="Tipo"
+                    style={{
+                      borderWidth: 0.75,
+                      borderColor: 'grey',
+                      padding: 10,
+                      marginBottom: 2,
+                      borderRadius: 5
+                    }}
+                    onChangeText={formikProps.handleChange('email')}
+                    onBlur={formikProps.handleBlur('email')}
+                  //autoFocus
+                  />
+                  <Text style={{ marginBottom: 3, color: 'grey', fontSize: 11 }}>Tipo de documento de Identidad</Text>
+
+                  {/*<Text style={{ color: 'red' }}>
                   {formikProps.touched.email && formikProps.errors.email}
-                </Text>
+                </Text>*/}
+                </View>
+
+                <View style={{ marginHorizontal: 5, marginVertical: 5 }}>
+                  <TextInput
+                    placeholder="Fecha de expedición"
+                    style={{
+                      borderWidth: 0.75,
+                      borderColor: 'grey',
+                      padding: 10,
+                      marginBottom: 2,
+                      borderRadius: 5
+                    }}
+                    onChangeText={formikProps.handleChange('email')}
+                    onBlur={formikProps.handleBlur('email')}
+                  //autoFocus
+                  />
+
+
+                  {/*<Text style={{ color: 'red' }}>
+                  {formikProps.touched.email && formikProps.errors.email}
+                </Text>*/}
+                </View>
+
               </View>
 
               <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
-                <Text style={{ marginBottom: 3 }}>Password</Text>
+
                 <TextInput
-                  placeholder="password"
+                  placeholder="# Documento de identidad"
                   style={{
-                    borderWidth: 1,
-                    borderColor: 'black',
+                    borderWidth: 0.75,
+                    borderColor: 'grey',
                     padding: 10,
                     marginBottom: 3,
+                    marginTop: 7,
+                    borderRadius: 5
                   }}
                   onChangeText={formikProps.handleChange('password')}
                   onBlur={formikProps.handleBlur('password')}
                   secureTextEntry
                 />
+                <Text style={{ marginBottom: 3, color: 'grey', fontSize: 11 }}>Ingrese el número sin espacios o guiones</Text>
+                {/*
                 <Text style={{ color: 'red' }}>
                   {formikProps.touched.password && formikProps.errors.password}
                 </Text>
+                */}
+
+
               </View>
+
+
+              <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
+
+                <TextInput
+                  placeholder="Teléfono celular"
+                  style={{
+                    borderWidth: 0.75,
+                    borderColor: 'grey',
+                    padding: 10,
+                    marginBottom: 3,
+                    marginTop: 7,
+                    borderRadius: 5
+                  }}
+                  onChangeText={formikProps.handleChange('password')}
+                  onBlur={formikProps.handleBlur('password')}
+                  secureTextEntry
+                />
+                <Text style={{ marginBottom: 3, color: 'grey', fontSize: 11 }}>Ingrese el número de teléfono que esta utilizando</Text>
+                {/*
+                <Text style={{ color: 'red' }}>
+                  {formikProps.touched.password && formikProps.errors.password}
+                </Text>
+                */}
+
+
+              </View>
+
+
 
               {formikProps.isSubmitting ? (
                 <ActivityIndicator />
               ) : (
-                  <Button title="Submit" onPress={formikProps.handleSubmit} />
+
+                  <View style={styles.fixToText}>
+
+                    <TouchableOpacity
+                      style={{
+                        width: 150,
+                        height: 45,
+                        marginHorizontal: 10,
+                        borderRadius: 30,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        backgroundColor: '#0179C3'
+                      }}
+                      onPress={formikProps.handleSubmit}
+                    >
+                      <Text style={{ color: '#ffffff' }}>Continuar</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                      style={{
+                        width: 150,
+                        height: 45,
+                        marginHorizontal: 10,
+                        borderRadius: 30,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        backgroundColor: '#0179C3'
+                      }}
+                      onPress={() => this.props.navigation.navigate('Index')}
+                    >
+                      <Text style={{ color: '#ffffff' }}>Salir</Text>
+                    </TouchableOpacity>
+
+
+                  </View>
+
                 )}
             </React.Fragment>
           )}
         </Formik>
-        <Button title="Salir" onPress={() => this.props.navigation.navigate('Index')} />
+
       </SafeAreaView>
 
     );
@@ -107,12 +207,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   welcomeImage: {
+
     alignContent: 'center',
     alignItems: 'center',
-    width: 100,
-    height: 110,
     borderRadius: 5,
-    margin: '5%',
+    marginTop: 50,
+
+  },
+  fixToText: {
+    marginTop: 120,
+    flexDirection: 'row',
+    alignSelf: 'center'
+
 
   },
 });
