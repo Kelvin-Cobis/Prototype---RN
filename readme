@@ -7,3 +7,6 @@ npm install yup
 npm install react-native-formik
 npm install tcomb-form-native
 npm install react-native-elements
+npm install @react-navigation/stack
+npm install react-native-safe-area-context
+npm install @react-native-community/masked-view

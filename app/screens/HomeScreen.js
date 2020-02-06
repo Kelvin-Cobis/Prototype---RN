@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text } from 'native-base';
-
-
-import { StyleSheet, Button, View } from 'react-native';
+import { TouchableOpacity, StyleSheet, Button, View } from 'react-native';
+import { createStackNavigator } from 'react-navigation-stack';
 
 
 export default class HomeScreen extends Component {
 
 
-  constructor(props) {
-    super(props);
-    const { navigate } = this.props.navigation;
-  }
 
-  static navigationOptions = ({ navigation, screenProps }) => ({
-    headerTitle: 'Saldo',
+  /*  constructor(props) {
+      super(props);
+      const { navigate } = this.props.navigation;
+    }
+  */
+  static navigationOptions = () => ({
+    header: null
+
+    /*headerTitle: 'Saldo',
     headerRight:
       <View style={styles.backButton}>
         <Button
@@ -22,13 +24,14 @@ export default class HomeScreen extends Component {
           title="Salir"
           color="#4E7EB2"
         />
-      </View>
+      </View>*/
 
   });
 
   render() {
-
+    const { navigate } = this.props.navigation;
     return (
+
       <View style={styles.transacciones}>
         <Content>
           <List>
@@ -44,47 +47,98 @@ export default class HomeScreen extends Component {
             <Text style={{ fontSize: 12, color: 'grey' }}>
               Transacciones pendientes
                </Text>
-                       
-            <ListItem avatar>
-              <Left>
-                <Thumbnail source={require('../assets/images/person.jpg')} />
-              </Left>
-              <Body>
-                <Text>Pago JC</Text>
-                <Text note>Doing what you like will always keep you happy . .</Text>
-              </Body>
-              <Right>
-                <Text note>3:43 pm</Text>
-              </Right>
-            </ListItem>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('homeStak')}>
+              <ListItem avatar >
+                <Left>
+                  <Thumbnail source={require('../assets/images/person.jpg')} />
+                </Left>
+                <Body>
+                  <View style={{ justifyContent: 'space-around', marginVertical: 5 }}>
+                    <Text>Pago JC</Text>
+                    <View style={{ flexDirection: "row" }}>
+                      <Text style={{ fontSize: 10 }} note>Francisco Mendoza</Text>
+                      <Text style={{ fontSize: 10 }} note>0987654321 </Text>
+                    </View>
+                  </View>
+                </Body>
+                <Right>
+                  <View style={{ marginVertical: 5 }}>
+                    <Text style={{ fontSize: 10 }}>$50.00  </Text>
+                  </View>
+                  <Text style={{ fontSize: 10 }}>14 de enero</Text>
+                </Right>
+              </ListItem>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('homeStak')}>
+              <ListItem avatar>
+                <Left>
+                  <Thumbnail source={require('../assets/images/person.jpg')} />
+                </Left>
+                <Body>
+                  <View style={{ justifyContent: 'space-around', marginVertical: 5 }}>
+                    <Text>Pago JC</Text>
+                    <View style={{ flexDirection: "row" }}>
+                      <Text style={{ fontSize: 10 }} note>Francisco Mendoza</Text>
+                      <Text style={{ fontSize: 10 }} note>0987654321 </Text>
+                    </View>
+                  </View>
+                </Body>
+                <Right>
+                  <View style={{ marginVertical: 5 }}>
+                    <Text style={{ fontSize: 10 }}>$50.00  </Text>
+                  </View>
+                  <Text style={{ fontSize: 10 }}>14 de enero</Text>
+                </Right>
+              </ListItem>
+            </TouchableOpacity>
+
             <Text style={{ fontSize: 12, color: 'grey' }}>
               Transacciones anteriores
                </Text>
-                  
-            <ListItem avatar>
-              <Left>
-                <Thumbnail source={require('../assets/images/person.jpg')} />
-              </Left>
-              <Body>
-                <Text>Kumar Pratik</Text>
-                <Text note>Doing what you like will always keep you happy . .</Text>
-              </Body>
-              <Right>
-                <Text note>3:43 pm</Text>
-              </Right>
-            </ListItem>
-            <ListItem avatar>
-              <Left>
-                <Thumbnail source={require('../assets/images/person.jpg')} />
-              </Left>
-              <Body>
-                <Text>Kumar Pratik</Text>
-                <Text note>Doing what you like will always keep you happy . .</Text>
-              </Body>
-              <Right>
-                <Text note>3:43 pm</Text>
-              </Right>
-            </ListItem>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('InfoTransaccion')}>
+              <ListItem avatar>
+                <Left>
+                  <Thumbnail source={require('../assets/images/person.jpg')} />
+                </Left>
+                <Body>
+                  <View style={{ justifyContent: 'space-around', marginVertical: 5 }}>
+                    <Text>Almuerzo cumple Vivi</Text>
+                    <View style={{ flexDirection: "row" }}>
+                      <Text style={{ fontSize: 10 }} note>Francisco Mendoza</Text>
+                      <Text style={{ fontSize: 10 }} note>0987654321 </Text>
+                    </View>
+                  </View>
+                </Body>
+                <Right>
+                  <View style={{ marginVertical: 5 }}>
+                    <Text style={{ fontSize: 10 }}>$50.00  </Text>
+                  </View>
+                  <Text style={{ fontSize: 10 }}>14 de enero</Text>
+                </Right>
+              </ListItem>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => console.log('pressa')}>
+              <ListItem avatar>
+                <Left>
+                  <Thumbnail source={require('../assets/images/person.jpg')} />
+                </Left>
+                <Body>
+                  <View style={{ justifyContent: 'space-around', marginVertical: 5 }}>
+                    <Text>Computadora MackBook</Text>
+                    <View style={{ flexDirection: "row" }}>
+                      <Text style={{ fontSize: 10 }} note>Francisco Mendoza</Text>
+                      <Text style={{ fontSize: 10 }} note>0987654321 </Text>
+                    </View>
+                  </View>
+                </Body>
+                <Right>
+                  <View style={{ marginVertical: 5 }}>
+                    <Text style={{ fontSize: 10 }}>$50.00  </Text>
+                  </View>
+                  <Text style={{ fontSize: 10 }}>14 de enero</Text>
+                </Right>
+              </ListItem>
+            </TouchableOpacity>
           </List>
         </Content>
 
@@ -95,8 +149,9 @@ export default class HomeScreen extends Component {
 }
 
 
+
 const styles = StyleSheet.create({
-  
+
   welcomeImage: {
     width: '100%',
     height: '100%',
@@ -115,7 +170,7 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   informacion: {
-    marginTop: 10,
+    marginTop: 50,
     marginBottom: 10,
     width: '100%',
     height: 200,
