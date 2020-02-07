@@ -1,12 +1,7 @@
 npm install 
 npm install prop-types --save
 npm install native-base --save
-npm install react-native-material-dropdown
-npm install recompose
 npm install yup
 npm install react-native-formik
-npm install tcomb-form-native
 npm install react-native-elements
-npm install @react-navigation/stack
-npm install react-native-safe-area-context
-npm install @react-native-community/masked-view
+
