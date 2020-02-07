@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text } from 'native-base';
-import { TouchableOpacity, StyleSheet, Button, View } from 'react-native';
-import { createStackNavigator } from 'react-navigation-stack';
+import { Content, List, ListItem, Left, Body, Right, Thumbnail, Text } from 'native-base';
+import { TouchableOpacity, StyleSheet, Image, View } from 'react-native';
 
 
 export default class HomeScreen extends Component {
@@ -34,9 +33,9 @@ export default class HomeScreen extends Component {
 
       <View style={styles.transacciones}>
         <Content>
-          <List>
+          <List    keyboardShouldPersistTaps = "always">
             <View style={styles.informacion}>
-              <Thumbnail large source={require('../assets/images/person.jpg')} />
+              <Image   style={{width: 160, height: 160 , borderRadius:100}} source={require('../assets/images/person.jpg')} />
               <Text style={{ fontSize: 20 }}>Francisco Mendoza</Text>
               <View style={{ alignItems: "center" }}>
                 <Text style={{ fontSize: 10, color: 'grey' }}>Mi saldo</Text>
@@ -47,8 +46,8 @@ export default class HomeScreen extends Component {
             <Text style={{ fontSize: 12, color: 'grey' }}>
               Transacciones pendientes
                </Text>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('homeStak')}>
-              <ListItem avatar >
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('SolicitudPago')}>
+              <ListItem avatar onPress={() => this.props.navigation.navigate('SolicitudPago')}>
                 <Left>
                   <Thumbnail source={require('../assets/images/person.jpg')} />
                 </Left>
@@ -117,7 +116,7 @@ export default class HomeScreen extends Component {
                 </Right>
               </ListItem>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => console.log('pressa')}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('InfoTransaccion')}>
               <ListItem avatar>
                 <Left>
                   <Thumbnail source={require('../assets/images/person.jpg')} />
@@ -173,7 +172,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
     marginBottom: 10,
     width: '100%',
-    height: 200,
+    height: 275,
     justifyContent: 'space-around',
     alignItems: 'center',
   },

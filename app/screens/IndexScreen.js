@@ -1,19 +1,6 @@
 
-import * as WebBrowser from 'expo-web-browser';
 import React, { Component } from 'react';
-import { TouchableNativeFeedback } from 'react-native';
-
-import {
-  Image,
-  ImageBackground,
-  Platform,
-  TouchableHighlight,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Button,
-  View,
-} from 'react-native';
+import { Image, ImageBackground, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 
 
@@ -96,7 +83,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#4E7EB2',    
+    backgroundColor: '#4E7EB2',
   },
   bigWhite: {
     color: 'white',

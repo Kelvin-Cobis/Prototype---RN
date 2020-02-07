@@ -3,5 +3,8 @@ npm install prop-types --save
 npm install native-base --save
 npm install yup
 npm install react-native-formik
+npm install formik
 npm install react-native-elements
 
+react-native-simple-radio-button
+react-native-paper

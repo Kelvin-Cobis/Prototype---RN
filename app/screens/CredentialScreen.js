@@ -1,22 +1,5 @@
-
-import { Container, Header, Content, Icon } from 'native-base';
-import * as WebBrowser from 'expo-web-browser';
 import React, { Component } from 'react';
-import { TouchableNativeFeedback } from 'react-native';
-
-import {
-    Image,
-    ImageBackground,
-    Platform,
-    TouchableHighlight,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    Button,
-    View,
-} from 'react-native';
-
-
+import { Image, ImageBackground, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 export default class CredentialScreen extends Component {
     render() {
@@ -34,14 +17,14 @@ export default class CredentialScreen extends Component {
                         <View style={styles.welcomeContent}>
 
                             <TouchableOpacity onPress={() => this.props.navigation.navigate('Index')}
-                             style={styles.avatarContainer}>
+                                style={styles.avatarContainer}>
 
                                 <Image source={require('../assets/images/autenticacionFacial.png')} />
 
                             </TouchableOpacity>
 
-                            <TouchableOpacity  onPress={() => this.props.navigation.navigate('Main')}
-                            style={styles.avatarContainer}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Main')}
+                                style={styles.avatarContainer}>
 
                                 <Image source={require('../assets/images/autenticacionHuella.png')} />
 
@@ -99,7 +82,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#4E7EB2',
-        
+
     },
     bigWhite: {
         color: 'white',

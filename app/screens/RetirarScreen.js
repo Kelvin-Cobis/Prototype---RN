@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, ImageBackground , View, Button} from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
+import {StyleSheet, ImageBackground , View, Button} from 'react-native';
+
 
 export default class RetirarScreen extends Component {
 

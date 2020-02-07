@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
-import { List, ListItem, Left, Body, Right, Thumbnail } from 'native-base';
-
-
-
-import { StyleSheet, Image, View, TouchableOpacity } from 'react-native';
+import { List, ListItem, Left, Body, Thumbnail } from 'native-base';
+import { Text, StyleSheet, Image, View, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements'
-
-import { Text } from 'native-base';
-
 
 export default class ConfirmationScreen extends Component {
 
@@ -29,7 +23,7 @@ export default class ConfirmationScreen extends Component {
         <View style={styles.informacion}>
           <Text style={{ color: 'grey', fontSize: 12 }}>Referencia</Text>
           <Text style={{ color: 'black', fontSize: 13 }}>1234567890</Text>
-        </View>        
+        </View>
         <View style={styles.informacion}>
           <Text style={{ color: 'grey', fontSize: 12 }}>Monto</Text>
           <Text style={{ color: 'black', fontSize: 15 }}>$50.00</Text>
@@ -86,7 +80,7 @@ export default class ConfirmationScreen extends Component {
 
 ConfirmationScreen.navigationOptions = {
   header: null,
-}; 
+};
 
 const styles = StyleSheet.create({
 

@@ -1,126 +1,146 @@
-import React, { Component } from 'react';
-import { List, ListItem, Left, Body, Right, Thumbnail } from 'native-base';
+/*import React, { Component } from 'react';
+import { Animated, Easing, Platform } from 'react-native';
+import BaseScreen from './ConfirmationScreen';
+import SlideFromRightScreen from './CredentialScreen';
+import CollapseExpandScreen from './IndexScreen';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+let SlideFromRight = (index, position, width) => {
+  const translateX = position.interpolate({
+    inputRange: [index - 1, index],
+    outputRange: [width, 0],
+  })
 
+  return { transform: [ { translateX } ] }
+};
 
+let SlideFromBottom = (index, position, height) => {
+  const translateY = position.interpolate({
+    inputRange: [index - 1, index],
+    outputRange: [height, 0],
+  })
 
-import { StyleSheet, Image, View, TouchableOpacity } from 'react-native';
-import { Icon } from 'react-native-elements'
+  return { transform: [ { translateY } ] }
+};
 
-import { Text } from 'native-base';
+let CollapseTransition = (index, position) => {
+  const opacity = position.interpolate({
+    inputRange: [index - 1, index, index + 1],
+    outputRange: [0, 1, 1]
+  });
 
+  const scaleY = position.interpolate({
+    inputRange: [index - 1, index, index + 1],
+    outputRange: [0, 1, 1]
+  });
 
-export default class ConfirmationScreen extends Component {
-
-
-  render() {
-
-    return (
-      <View style={styles.contenedor}>
-
-        <View style={styles.informacion}>
-          <Text style={{ color: 'grey', fontSize: 12 }}>Tipo de transacción</Text>
-          <Text style={{ color: 'black', fontSize: 13 }}>Pago</Text>
-        </View>
-        <View style={styles.informacion}>
-          <Text style={{ color: 'grey', fontSize: 12 }}>Fecha</Text>
-          <Text style={{ color: 'black', fontSize: 13 }}>12 de enero</Text>
-        </View>
-        <View style={styles.informacion}>
-          <Text style={{ color: 'grey', fontSize: 12 }}>Referencia</Text>
-          <Text style={{ color: 'black', fontSize: 13 }}>1234567890</Text>
-        </View>
-        <View style={styles.informacion}>
-          <Text style={{ color: 'grey', fontSize: 12 }}>Monto</Text>
-          <Text style={{ color: 'black', fontSize: 15 }}>$50.00</Text>
-        </View>
-        <View style={styles.informacion}>
-          <Text style={{ color: 'grey', fontSize: 12 }}>Motivo</Text>
-          <Text style={{ color: 'black', fontSize: 13 }}>Orden #123</Text>
-        </View>
-        <View style={styles.solicitante}>
-          <List>
-            <View style={{ marginLeft: 20 }}>
-              <Text style={{ color: 'grey', fontSize: 13 }}>Contacto</Text>
-            </View>
-            <ListItem avatar>
-              <Left>
-                <Thumbnail source={require('../assets/images/person.jpg')} />
-              </Left>
-              <Body>
-                <Text style={{ color: 'black', fontSize: 14 }}>Francisco Mendoza</Text>
-                <Text note style={{ color: 'grey', fontSize: 13 }}>0987654321</Text>
-              </Body>
-
-            </ListItem>
-          </List>
-        </View>
-        <View style={styles.fixToText}>
-
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}
-            style={{
-              width: 135,
-              height: 45,
-              marginHorizontal: 10,
-              borderRadius: 30,
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: '#ffffff',
-              borderColor: '#0179C3',
-              borderWidth: 1,
-            }}
-
-          >
-
-            <Icon name='share' color='#0179C3' />
-            <Text style={{ color: '#0179C3', fontSize: 12 }}>Compartir</Text>
-          </TouchableOpacity>
-
-        </View>
-      </View>
-
-    )
+  return {
+    opacity,
+    transform: [ { scaleY } ]
   }
 }
 
-ConfirmationScreen.navigationOptions = {
-  header: null,
-};
+const TransitionConfiguration = () => {
+  return {
+    transitionSpec: {
+      duration: 750,
+      easing: Easing.out(Easing.poly(4)),
+      timing: Animated.timing,
+      useNativeDriver: true,
+    },
+    screenInterpolator: (sceneProps) => {
+      const { layout, position, scene } = sceneProps;
+      const width = layout.initWidth;
+      const height = layout.initHeight;
+      const { index, route } = scene
+      const params = route.params || {}; // <- That's new
+      const transition = params.transition || 'default'; // <- That's new
+      return {
+        bottomTransition: SlideFromBottom(index, position, height),
 
-const styles = StyleSheet.create({
+      }[transition];
+    },
+  }
+}
 
-  contenedor: {
-    width: '100%',
-    height: '100%',
-  },
-  cabecera: {
-    width: '100%',
-    height: 50,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    marginTop: 50,
-    marginBottom: 40,
-  },
-  center: {
-    alignItems: "center",
-    alignContent: "center"
-  },
-  informacion: {
-    width: '90%',
-    borderStyle: "dotted",
-    justifyContent: 'space-around',
-    height: 35,
-    marginTop: 20,
-    marginHorizontal: 20,
-    borderBottomColor: 'grey',
-    borderBottomWidth: 0.3,
-  },
-  solicitante: {
-    marginTop: 20,
-  },
-  fixToText: {
-    marginTop: 40,
-    flexDirection: 'row',
-    alignSelf: 'center'
-  },
+const RootStack = createStackNavigator({
+  SlideFromRight: { screen: SlideFromRightScreen },
+  SlideFromBottom: { screen: SlideFromRightScreen },
+  Base: { screen: BaseScreen },
+  CollapseExpand: { screen: CollapseExpandScreen }
+}, {
+    initialRouteName: 'Base',
+    headerMode: 'screen',
+    transitionConfig: TransitionConfiguration,
 });
+
+// export default TransitionApp
+const AppContainer = createAppContainer(RootStack);
+  
+  export default class TransitionApp extends Component {
+    render() {
+      return <AppContainer />;
+    }
+  }
+  
+/*
+
+ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+ import React, { Component } from 'react';
+ 
+ var radio_props = [
+   {label: 'param1', value: 0 },
+   {label: 'param2', value: 1 }
+ ];
+  
+ var RadioButtonProject = React.createClass({
+   getInitialState: function() {
+     return {
+       value: 0,
+     }
+   },
+   render: function() {
+     return (
+       <View>
+         <RadioForm
+           radio_props={radio_props}
+           initial={0}
+           onPress={(value) => {this.setState({value:value})}}
+         />
+       </View>
+     );
+   }
+ });*/
+
+
+ import * as React from 'react';
+ import { View } from 'react-native';
+ import { RadioButton } from 'react-native-paper';
+import { Text } from 'native-base';
+ 
+ export default class MyComponent extends React.Component {
+   state = {
+     checked: 'first',
+   };
+ 
+   render() {
+     const { checked } = this.state;
+ 
+     return (
+       <View style={{marginTop:45}}>
+         <RadioButton
+           value="first"
+           status={checked === 'first' ? 'checked' : 'unchecked'}
+           onPress={() => { this.setState({ checked: 'first' }); }}
+         >
+           <Text>helo</Text>
+         </RadioButton>
+         <RadioButton
+           value="second"
+           status={checked === 'second' ? 'checked' : 'unchecked'}
+           onPress={() => { this.setState({ checked: 'second' }); }}
+         />
+       </View>
+     );
+   }
+ }

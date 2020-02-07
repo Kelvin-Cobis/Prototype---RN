@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, ImageBackground ,View, Button} from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
+import { StyleSheet, ImageBackground, View, Button } from 'react-native';
 
-export default class LinksScreen extends Component{
+export default class LinksScreen extends Component {
 
 
   constructor(props) {
@@ -22,7 +21,7 @@ export default class LinksScreen extends Component{
       </View>
 
   });
-  render(){
+  render() {
     return (
       <ImageBackground style={styles.welcomeImage} source={require('../assets/images/pagar.png')} />
     );

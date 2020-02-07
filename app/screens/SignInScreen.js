@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
-import {
-  SafeAreaView,
-  TextInput,
-  Button,
-  ActivityIndicator,
-  Text, Image,
-  View, StyleSheet, TouchableOpacity
-} from 'react-native';
+import { SafeAreaView, TextInput, ActivityIndicator, Text, Image, View, StyleSheet, TouchableOpacity, Icon, ImageBackground } from 'react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+
 
 const validationSchema = yup.object().shape({
   email: yup
@@ -31,12 +25,26 @@ export default class SignIn extends Component {
       <SafeAreaView style={{
         backgroundColor: '#ffffff', width: '100%', height: '100%',
       }}>
-        <View style={styles.welcomeImage} >
-          <Image source={require('../assets/images/logo-cobis-digital.png')} />
+        <TouchableOpacity
+          style={{
+            marginTop: 30,
+            marginLeft: 10
+          }}
+          onPress={() => this.props.navigation.navigate('Index')}
+        >
+          {//<Icon name='md-arrow-back' type='Ionicons'></Icon>
+          }
+          <Image source={require('../assets/images/layer1.png')} />
+        </TouchableOpacity>
+
+        <View style={styles.welcomeImage}>
+
+          <Image style={{ width: '100%', height: 80 }} source={require('../assets/images/mobile--user.png')} />
+
+
         </View>
-        <View style={{ marginLeft: 10, margin: 15 }}>
-          <Text style={{ fontSize: 25, color: 'black' }}>Creación de cuenta</Text>
-        </View>
+        {//<Text style={{ fontSize: 24, color: '#4D7EAB' }}>Creación de cuenta</Text>
+        }
         <Formik
           initialValues={{ email: '', password: '' }}
           onSubmit={(values, actions) => {
@@ -146,6 +154,32 @@ export default class SignIn extends Component {
 
 
               </View>
+              <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
+
+                <TextInput
+                  placeholder="Teléfono celular"
+                  style={{
+                    borderWidth: 0.75,
+                    borderColor: 'grey',
+                    padding: 10,
+                    marginBottom: 3,
+                    marginTop: 7,
+                    borderRadius: 5
+                  }}
+                  onChangeText={formikProps.handleChange('password')}
+                  onBlur={formikProps.handleBlur('password')}
+                  secureTextEntry
+                />
+                <Text style={{ marginBottom: 3, color: 'grey', fontSize: 11 }}>Ingrese el número de teléfono que esta utilizando</Text>
+                {/*
+<Text style={{ color: 'red' }}>
+  {formikProps.touched.password && formikProps.errors.password}
+</Text>
+*/}
+
+
+              </View>
+
 
 
 
@@ -167,23 +201,10 @@ export default class SignIn extends Component {
                       }}
                       onPress={formikProps.handleSubmit}
                     >
-                      <Text style={{ color: '#ffffff' ,  fontSize: 12 }}>Continuar</Text>
+                      <Text style={{ color: '#ffffff', fontSize: 12 }}>Continuar</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity
-                      style={{
-                        width: 135,
-                        height: 45,
-                        marginHorizontal: 10,
-                        borderRadius: 30,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        backgroundColor: '#0179C3'
-                      }}
-                      onPress={() => this.props.navigation.navigate('Index')}
-                    >
-                      <Text style={{ color: '#ffffff' ,  fontSize: 12  }}>Salir</Text>
-                    </TouchableOpacity>
+
 
 
                   </View>
@@ -199,23 +220,19 @@ export default class SignIn extends Component {
   }
 }
 
-SignIn.navigationOptions={
+SignIn.navigationOptions = {
 
-  header:null
+  header: null
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
+
   welcomeImage: {
 
     alignContent: 'center',
     alignItems: 'center',
-    borderRadius: 5,
-    marginTop: 50,
+    marginBottom: 20
+
 
   },
   fixToText: {

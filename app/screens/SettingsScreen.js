@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, ImageBackground , View, Button} from 'react-native';
+import { StyleSheet, ImageBackground , View, Button} from 'react-native';
 
 export default class SettingsScreen extends Component {
 

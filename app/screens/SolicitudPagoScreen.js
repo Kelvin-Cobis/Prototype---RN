@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import { List, ListItem, Left, Body, Right, Thumbnail } from 'native-base';
-
-
-
+import { List, ListItem, Left, Body, Thumbnail, Text} from 'native-base';
 import { StyleSheet, Image, View, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements'
-
-import { Text } from 'native-base';
 
 
 export default class SolicitudDePagoScreen extends Component {

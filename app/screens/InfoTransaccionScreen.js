@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import { List, ListItem, Left, Body, Right, Thumbnail } from 'native-base';
-
-
-
-import { StyleSheet, Image, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import { Icon } from 'react-native-elements'
-
-import { Text } from 'native-base';
-
 
 export default class ConfirmationScreen extends Component {
 

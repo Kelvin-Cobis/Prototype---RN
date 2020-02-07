@@ -8,6 +8,9 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import RetirarScreen from '../screens/RetirarScreen';
+import ConfirmationScreen from '../screens/ConfirmationScreen';
+import InfoTransaccionScreen from '../screens/InfoTransaccionScreen';
+
 
 
 
@@ -20,6 +23,9 @@ const config = Platform.select({
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
+    Confirmation: ConfirmationScreen,
+    InfoTransaccion: InfoTransaccionScreen,
+
   },
   config
 );
