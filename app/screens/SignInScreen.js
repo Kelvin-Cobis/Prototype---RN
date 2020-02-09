@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { SafeAreaView, TextInput, ActivityIndicator, Text, Image, View, StyleSheet, TouchableOpacity, Icon, ImageBackground } from 'react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import RadioForm from 'react-native-simple-radio-button';
 
+var radio_props = [
+  { label: 'Depósito simple \nMovimientos mensuales inferiores a 3 salarios mínimos.', value: 0 },
+  { label: 'Deposito ordinario\nMovimientos mensuales superiores a 3 salarios mínimos.', value: 1 }
+];
 
 const validationSchema = yup.object().shape({
   email: yup
@@ -19,15 +24,20 @@ const validationSchema = yup.object().shape({
 });
 
 export default class SignIn extends Component {
+  state = {
+    checked: 'first',
+  };
+
   render() {
     const { navigate } = this.props.navigation;
+    const { checked } = this.state;
     return (
       <SafeAreaView style={{
         backgroundColor: '#ffffff', width: '100%', height: '100%',
       }}>
         <TouchableOpacity
           style={{
-            marginTop: 30,
+            marginTop: 35,
             marginLeft: 10
           }}
           onPress={() => this.props.navigation.navigate('Index')}
@@ -64,7 +74,7 @@ export default class SignIn extends Component {
                     style={{
                       borderWidth: 0.75,
                       borderColor: 'grey',
-                      padding: 10,
+                      padding: 7,
                       marginBottom: 2,
                       borderRadius: 5
                     }}
@@ -72,7 +82,7 @@ export default class SignIn extends Component {
                     onBlur={formikProps.handleBlur('email')}
                   //autoFocus
                   />
-                  <Text style={{ marginBottom: 3, color: 'grey', fontSize: 11 }}>Tipo de documento de Identidad</Text>
+                  <Text style={{ marginBottom: 0, color: 'grey', fontSize: 11 }}>Tipo de documento de Identidad</Text>
 
                   {/*<Text style={{ color: 'red' }}>
                   {formikProps.touched.email && formikProps.errors.email}
@@ -85,7 +95,7 @@ export default class SignIn extends Component {
                     style={{
                       borderWidth: 0.75,
                       borderColor: 'grey',
-                      padding: 10,
+                      padding: 7,
                       marginBottom: 2,
                       borderRadius: 5
                     }}
@@ -109,16 +119,15 @@ export default class SignIn extends Component {
                   style={{
                     borderWidth: 0.75,
                     borderColor: 'grey',
-                    padding: 10,
+                    padding: 7,
                     marginBottom: 3,
-                    marginTop: 7,
                     borderRadius: 5
                   }}
                   onChangeText={formikProps.handleChange('password')}
                   onBlur={formikProps.handleBlur('password')}
                   secureTextEntry
                 />
-                <Text style={{ marginBottom: 3, color: 'grey', fontSize: 11 }}>Ingrese el número sin espacios o guiones</Text>
+                <Text style={{color: 'grey', fontSize: 11 }}>Ingrese el número sin espacios o guiones</Text>
                 {/*
                 <Text style={{ color: 'red' }}>
                   {formikProps.touched.password && formikProps.errors.password}
@@ -136,16 +145,15 @@ export default class SignIn extends Component {
                   style={{
                     borderWidth: 0.75,
                     borderColor: 'grey',
-                    padding: 10,
-                    marginBottom: 3,
-                    marginTop: 7,
+                    padding: 7,
+                    marginBottom: 3,                    
                     borderRadius: 5
                   }}
                   onChangeText={formikProps.handleChange('password')}
                   onBlur={formikProps.handleBlur('password')}
                   secureTextEntry
                 />
-                <Text style={{ marginBottom: 3, color: 'grey', fontSize: 11 }}>Ingrese el número de teléfono que esta utilizando</Text>
+                <Text style={{color: 'grey', fontSize: 11 }}>Ingrese el número de teléfono que esta utilizando</Text>
                 {/*
                 <Text style={{ color: 'red' }}>
                   {formikProps.touched.password && formikProps.errors.password}
@@ -154,23 +162,21 @@ export default class SignIn extends Component {
 
 
               </View>
-              <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
 
-                <TextInput
-                  placeholder="Teléfono celular"
-                  style={{
-                    borderWidth: 0.75,
-                    borderColor: 'grey',
-                    padding: 10,
-                    marginBottom: 3,
-                    marginTop: 7,
-                    borderRadius: 5
-                  }}
-                  onChangeText={formikProps.handleChange('password')}
-                  onBlur={formikProps.handleBlur('password')}
-                  secureTextEntry
-                />
-                <Text style={{ marginBottom: 3, color: 'grey', fontSize: 11 }}>Ingrese el número de teléfono que esta utilizando</Text>
+              <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
+                <Text style={{ fontSize: 16 , marginBottom: 10}}>Tipo</Text>
+                <RadioForm
+                  buttonColor={'#0179C3'}
+                  selectedButtonColor={'#0179C3'}
+                  buttonSize={12}
+                  radio_props={radio_props}
+                  initial={0}
+                  onPress={(value) => { this.setState({ value: value }) }}
+
+                >
+                  
+                </RadioForm>
+
                 {/*
 <Text style={{ color: 'red' }}>
   {formikProps.touched.password && formikProps.errors.password}
@@ -193,20 +199,20 @@ export default class SignIn extends Component {
                       style={{
                         width: 135,
                         height: 45,
-                        marginHorizontal: 10,
+                        marginBottom:5,
                         borderRadius: 30,
                         justifyContent: 'center',
                         alignItems: 'center',
                         backgroundColor: '#0179C3'
                       }}
-                      onPress={formikProps.handleSubmit}
+                      onPress={() => this.props.navigation.navigate('SignIn2')}
+                      //onPress={formikProps.handleSubmit}
+
                     >
                       <Text style={{ color: '#ffffff', fontSize: 12 }}>Continuar</Text>
                     </TouchableOpacity>
-
-
-
-
+                    
+                    <Text style={{color: 'grey', fontSize: 11 }}>Ingresa todos los datos son obligatorios para continuar</Text>
                   </View>
 
                 )}
@@ -231,14 +237,14 @@ const styles = StyleSheet.create({
 
     alignContent: 'center',
     alignItems: 'center',
-    marginBottom: 20
+    marginBottom: 10
 
 
   },
   fixToText: {
-    marginTop: 120,
-    flexDirection: 'row',
-    alignSelf: 'center'
+    
+    alignContent: 'center',
+    alignItems: 'center',
 
 
   },

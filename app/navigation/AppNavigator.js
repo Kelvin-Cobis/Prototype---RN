@@ -5,11 +5,15 @@ import MainTabNavigator from './MainTabNavigator';
 import CredentialScreen from '../screens/CredentialScreen';
 import IndexScreen from '../screens/IndexScreen';
 import SignInScreen from '../screens/SignInScreen';
+import SignInScreen2 from '../screens/SignInScreen-2';
+import SignInScreen3 from '../screens/SignInScreen-3';
 import SolicitudPagoScreen from '../screens/SolicitudPagoScreen';
 
 autnticacion = createStackNavigator({
   Index: IndexScreen,
   SignIn: SignInScreen,
+  SignIn2: SignInScreen2,
+  SignIn3: SignInScreen3,
   Credential: CredentialScreen,
 
 });
@@ -40,6 +44,6 @@ export default createAppContainer(
 
   },
     {
-      initialRouteName: 'Test',
+      initialRouteName: 'Aut',
     })
 );

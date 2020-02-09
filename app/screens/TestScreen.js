@@ -113,34 +113,27 @@ const AppContainer = createAppContainer(RootStack);
  });*/
 
 
- import * as React from 'react';
- import { View } from 'react-native';
- import { RadioButton } from 'react-native-paper';
-import { Text } from 'native-base';
- 
- export default class MyComponent extends React.Component {
-   state = {
-     checked: 'first',
-   };
- 
-   render() {
-     const { checked } = this.state;
- 
-     return (
-       <View style={{marginTop:45}}>
-         <RadioButton
-           value="first"
-           status={checked === 'first' ? 'checked' : 'unchecked'}
-           onPress={() => { this.setState({ checked: 'first' }); }}
-         >
-           <Text>helo</Text>
-         </RadioButton>
-         <RadioButton
-           value="second"
-           status={checked === 'second' ? 'checked' : 'unchecked'}
-           onPress={() => { this.setState({ checked: 'second' }); }}
-         />
-       </View>
-     );
-   }
- }
+import * as React from 'react';
+import { Checkbox } from 'react-native-paper';
+import { View } from 'native-base';
+
+export default class MyComponent extends React.Component {
+  state = {
+    checked: false,
+  };
+
+  render() {
+    const { checked } = this.state;
+    return (
+      <View style={{marginTop:200}}>
+        <Checkbox
+        
+        color='red'
+          status={checked ? 'checked' : 'unchecked'}
+          onPress={() => { this.setState({ checked: !checked }); }}
+        />
+      </View>
+
+    );
+  }
+}
