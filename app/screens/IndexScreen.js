@@ -2,10 +2,6 @@
 import React, { Component } from 'react';
 import { Image, ImageBackground, StyleSheet, TouchableOpacity, View } from 'react-native';
 
-
-
-
-
 export default class IndexScreen extends Component {
 
   render() {
@@ -15,37 +11,19 @@ export default class IndexScreen extends Component {
         <View
           style={styles.container}
           contentContainerStyle={styles.contentContainer}>
-
           <ImageBackground style={styles.welcomeImage} source={require('../assets/images/start.png')} >
-
             <View style={styles.welcomeContent} />
-
             <View style={styles.welcomeContent}>
-
               <TouchableOpacity onPress={() => this.props.navigation.navigate('SignIn')}
                 style={styles.avatarContainer}>
-
                 <Image source={require('../assets/images/crearCuenta.png')} />
-
               </TouchableOpacity>
-
               <TouchableOpacity onPress={() => this.props.navigation.navigate('Credential')}
                 style={styles.avatarContainer}>
-
-                <Image source={require('../assets/images/yaTengoCuenta.png')} />
-
+               <Image source={require('../assets/images/yaTengoCuenta.png')} />
               </TouchableOpacity>
-
-
             </View>
-
-
           </ImageBackground>
-
-
-
-
-
         </View>
       </View>
     );

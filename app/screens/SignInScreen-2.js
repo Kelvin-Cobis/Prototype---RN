@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { SafeAreaView, TextInput, ActivityIndicator, Text, Image, View, StyleSheet, TouchableOpacity, Icon, ImageBackground } from 'react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import RadioForm from 'react-native-simple-radio-button';
 
 const validationSchema = yup.object().shape({
     email: yup

@@ -172,9 +172,7 @@ export default class SignIn extends Component {
                   radio_props={radio_props}
                   initial={0}
                   onPress={(value) => { this.setState({ value: value }) }}
-
-                >
-                  
+                >                  
                 </RadioForm>
 
                 {/*
