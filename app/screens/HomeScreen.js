@@ -33,9 +33,9 @@ export default class HomeScreen extends Component {
 
       <View style={styles.transacciones}>
         <Content>
-          <List    keyboardShouldPersistTaps = "always">
+          <List keyboardShouldPersistTaps="always">
             <View style={styles.informacion}>
-              <Image   style={{width: 160, height: 160 , borderRadius:100}} source={require('../assets/images/person.jpg')} />
+              <Image style={{ width: 160, height: 160, borderRadius: 100 }} source={require('../assets/images/person.jpg')} />
               <Text style={{ fontSize: 20 }}>Francisco Mendoza</Text>
               <View style={{ alignItems: "center" }}>
                 <Text style={{ fontSize: 10, color: 'grey' }}>Mi saldo</Text>
@@ -43,10 +43,9 @@ export default class HomeScreen extends Component {
               </View>
 
             </View>
-            <Text style={{ fontSize: 12, color: 'grey' }}>
+            <Text style={{ fontSize: 12, color: 'grey', marginStart: 10 }}>
               Transacciones pendientes
                </Text>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('SolicitudPago')}>
               <ListItem avatar onPress={() => this.props.navigation.navigate('SolicitudPago')}>
                 <Left>
                   <Thumbnail source={require('../assets/images/person.jpg')} />
@@ -67,35 +66,31 @@ export default class HomeScreen extends Component {
                   <Text style={{ fontSize: 10 }}>14 de enero</Text>
                 </Right>
               </ListItem>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('homeStak')}>
-              <ListItem avatar>
-                <Left>
-                  <Thumbnail source={require('../assets/images/person.jpg')} />
-                </Left>
-                <Body>
-                  <View style={{ justifyContent: 'space-around', marginVertical: 5 }}>
-                    <Text>Pago JC</Text>
-                    <View style={{ flexDirection: "row" }}>
-                      <Text style={{ fontSize: 10 }} note>Francisco Mendoza</Text>
-                      <Text style={{ fontSize: 10 }} note>0987654321 </Text>
-                    </View>
+            <ListItem avatar onPress={() => this.props.navigation.navigate('homeStak')}>
+              <Left>
+                <Thumbnail source={require('../assets/images/person.jpg')} />
+              </Left>
+              <Body>
+                <View style={{ justifyContent: 'space-around', marginVertical: 5 }}>
+                  <Text>Pago JC</Text>
+                  <View style={{ flexDirection: "row" }}>
+                    <Text style={{ fontSize: 10 }} note>Francisco Mendoza</Text>
+                    <Text style={{ fontSize: 10 }} note>0987654321 </Text>
                   </View>
-                </Body>
-                <Right>
-                  <View style={{ marginVertical: 5 }}>
-                    <Text style={{ fontSize: 10 }}>$50.00  </Text>
-                  </View>
-                  <Text style={{ fontSize: 10 }}>14 de enero</Text>
-                </Right>
-              </ListItem>
-            </TouchableOpacity>
+                </View>
+              </Body>
+              <Right>
+                <View style={{ marginVertical: 5 }}>
+                  <Text style={{ fontSize: 10 }}>$50.00  </Text>
+                </View>
+                <Text style={{ fontSize: 10 }}>14 de enero</Text>
+              </Right>
+            </ListItem>
 
-            <Text style={{ fontSize: 12, color: 'grey' }}>
+            <Text style={{ fontSize: 12, color: 'grey', marginStart: 10, marginTop: 10 }}>
               Transacciones anteriores
                </Text>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('InfoTransaccion')}>
-              <ListItem avatar>
+              <ListItem avatar onPress={() => this.props.navigation.navigate('InfoTransaccion')}>
                 <Left>
                   <Thumbnail source={require('../assets/images/person.jpg')} />
                 </Left>
@@ -115,9 +110,7 @@ export default class HomeScreen extends Component {
                   <Text style={{ fontSize: 10 }}>14 de enero</Text>
                 </Right>
               </ListItem>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('InfoTransaccion')}>
-              <ListItem avatar>
+              <ListItem avatar onPress={() => this.props.navigation.navigate('InfoTransaccion')}>
                 <Left>
                   <Thumbnail source={require('../assets/images/person.jpg')} />
                 </Left>
@@ -137,7 +130,6 @@ export default class HomeScreen extends Component {
                   <Text style={{ fontSize: 10 }}>14 de enero</Text>
                 </Right>
               </ListItem>
-            </TouchableOpacity>
           </List>
         </Content>
 

@@ -97,7 +97,7 @@ export default class SignIn extends Component {
                                 backgroundColor: '#0179C3',
                                 marginHorizontal: 15
                             }}
-                            onPress={() => this.props.navigation.navigate('Index')}
+                            onPress={() => this.props.navigation.navigate('SignIn4')}
                         >
                             <Text style={{ color: '#ffffff', fontSize: 12 }}>Continuar</Text>
                         </TouchableOpacity>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, Image, View, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
-export default class LinksScreen extends Component {
+export default class CobrarScreen extends Component {
 
 
   constructor(props) {
@@ -24,9 +24,16 @@ export default class LinksScreen extends Component {
         }}>
           <TouchableOpacity style={styles.optionsHeader}>
             <View style={styles.optionSlectedHeader}>
-              <Image source={require('../assets/images/transfer.png')} />
+              <Image source={require('../assets/images/mobile-transfer--left.png')} />
             </View>
-            <Text style={{ color: '#0179C3' }}>Pasa plata</Text>
+            <Text style={{ color: '#0179C3' }}>Pide plata</Text>
+          </TouchableOpacity>
+        
+          <TouchableOpacity style={styles.optionsHeader}>
+            <View style={styles.optionHeader}>
+              <Image source={require('../assets/images/mobile--otp.png')} />
+            </View>
+            <Text>Cobro con PIN</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionsHeader}>
             <View style={styles.optionHeader}>
@@ -36,15 +43,9 @@ export default class LinksScreen extends Component {
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionsHeader}>
             <View style={styles.optionHeader}>
-              <Image source={require('../assets/images/facturaLayer.png')} />
-            </View>
-            <Text>Pago factura</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.optionsHeader}>
-            <View style={styles.optionHeader}>
               <Image source={require('../assets/images/mobile.png')} />
             </View>
-            <Text>Recarga</Text>
+            <Text>Cobro con NFC</Text>
           </TouchableOpacity>
         </ScrollView>
         <ScrollView style={{}}>
@@ -87,8 +88,8 @@ export default class LinksScreen extends Component {
               alignItems: "center",
             }}>
               <TouchableOpacity style={styles.buttonTouchable}>
-                <Image source={require('../assets/images/shortTransfer.png')} />
-                <Text style={{ color: '#ffffff', fontSize: 12, marginLeft: 7 }}>Pagar</Text>
+                <Image source={require('../assets/images/solicitar--opt.png')} />
+                <Text style={{ color: '#ffffff', fontSize: 12, marginLeft: 7 }}>Solicitar</Text>
               </TouchableOpacity>
               <Text style={{ color: 'grey', fontSize: 11, marginTop: 5 }}>Ingrese los datos del pago para continuar</Text>
             </View>
