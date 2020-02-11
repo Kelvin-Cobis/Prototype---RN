@@ -17,7 +17,7 @@ export default class ConfirmationScreen extends Component {
           </View>
 
           <View style={styles.center}>
-            <Text style={{ fontSize: 13, color: '#76AB4D' }}>Cobro exitoso</Text>
+            <Text style={{ fontSize: 13, color: '#76AB4D' }}>Transacción exitosa</Text>
           </View>
         </View>
         <View style={styles.informacion}>

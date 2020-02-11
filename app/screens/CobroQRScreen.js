@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Text, Image, View, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import { Text, Image, View, StyleSheet, TouchableOpacity, TextInput, Icon } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
-export default class LinksScreen extends Component {
+export default class CobrarScreen extends Component {
 
 
   constructor(props) {
@@ -23,31 +23,32 @@ export default class LinksScreen extends Component {
           flexDirection: "row"
         }}>
           <TouchableOpacity style={styles.optionsHeader}>
+            <View style={styles.optionHeader}>
+              <Image style={{ tintColor: '#000000' }} source={require('../assets/images/mobile-transfer--left.png')} />
+            </View>
+            <Text >Pide plata</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.optionsHeader}>
+            <View style={styles.optionHeader}>
+              <Image source={require('../assets/images/mobile--otp.png')} />
+            </View>
+            <Text>Cobro con PIN</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.optionsHeader}>
             <View style={styles.optionSlectedHeader}>
-              <Image source={require('../assets/images/transfer.png')} />
+              <Image style={{ tintColor: '#0079C3' }} source={require('../assets/images/qrLayer.png')} />
             </View>
-            <Text style={{ color: '#0179C3' }}>Pasa plata</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.optionsHeader}>
-            <View style={styles.optionHeader}>
-              <Image source={require('../assets/images/qrLayer.png')} />
-            </View>
-            <Text>Pago con QR</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.optionsHeader}>
-            <View style={styles.optionHeader}>
-              <Image source={require('../assets/images/facturaLayer.png')} />
-            </View>
-            <Text>Pago factura</Text>
+            <Text style={{ color: '#0179C3' }}>Cobro con QR</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionsHeader}>
             <View style={styles.optionHeader}>
               <Image source={require('../assets/images/mobile.png')} />
             </View>
-            <Text>Recarga</Text>
+            <Text>Cobro con NFC</Text>
           </TouchableOpacity>
         </ScrollView>
-        <ScrollView style={{ width: '100%' }}>
+        <ScrollView style={{}}>
           <View style={{ marginHorizontal: 20, marginVertical: 5 }}>
             <TextInput
               placeholder="Monto"
@@ -62,50 +63,22 @@ export default class LinksScreen extends Component {
             />
             <Text style={{ color: 'grey', fontSize: 11, marginLeft: 10 }}>Lo podrás ver tu y tu contacto</Text>
           </View>
-          <Text style={{ color: 'grey', fontSize: 14, marginLeft: 25, marginVertical: 10, fontWeight: 'bold' }}>
-            Seleccionar un contacto</Text>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('Contactos')}
-            style={{
-              flexDirection: 'row',
-              alignContent: 'center',
-              alignItems: 'center',
-              marginLeft: 25,
-              marginVertical: 10
-            }}>
-            <View style={styles.circleTouchable} >
-              <Image source={require('../assets/images/search.png')} />
-            </View>
-            <Text style={{ color: '#0179C3', fontSize: 16 }}>Buscar contacto</Text>
-          </TouchableOpacity>
-          <View style={{ borderBottomWidth: 0.17, borderColor: 'grey' }} />
-          <TouchableOpacity
-            style={{
-              flexDirection: 'row',
-              alignContent: 'center',
-              alignItems: 'center',
-              marginLeft: 25,
-              marginVertical: 10
-            }}>
-            <TouchableOpacity style={styles.circleTouchable}>
-              <Image source={require('../assets/images/plus.png')} />
-            </TouchableOpacity>
-            <Text style={{ color: '#0179C3', fontSize: 16 }}>Agrear nuevo contacto</Text>
-          </TouchableOpacity>
+
+
+
+
           <View style={{
             alignContent: 'center',
             alignItems: 'center',
-            marginTop: 10
+            marginTop: 150
           }}>
             <View style={{
               alignContent: "center",
               alignItems: "center",
             }}>
-              <TouchableOpacity style={styles.buttonTouchable}
-                onPress={() => this.props.navigation.navigate('ConfirmacionPago')}
-              >
-                <Image source={require('../assets/images/shortTransfer.png')} />
-                <Text style={{ color: '#ffffff', fontSize: 12, marginLeft: 7 }}>Pagar</Text>
+              <TouchableOpacity style={styles.buttonTouchable}>
+                <Image source={require('../assets/images/solicitar--opt.png')} />
+                <Text style={{ color: '#ffffff', fontSize: 12, marginLeft: 7 }}>Solicitar</Text>
               </TouchableOpacity>
               <Text style={{ color: 'grey', fontSize: 11, marginTop: 5 }}>Ingrese los datos del pago para continuar</Text>
             </View>
@@ -114,7 +87,6 @@ export default class LinksScreen extends Component {
               alignItems: "center",
             }}>
             </View>
-
           </View>
 
         </ScrollView>
@@ -169,8 +141,8 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     backgroundColor: '#0179C3',
     width: 48, height: 48,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     marginRight: 10
   },
   buttonTouchable: {
@@ -185,4 +157,24 @@ const styles = StyleSheet.create({
     borderColor: '#0179C3',
     borderWidth: 1,
   },
+  searchSection: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  searchIcon: {
+    padding: 10,
+  },
+  input: {
+    flex: 1,
+    paddingTop: 10,
+    paddingRight: 10,
+    paddingBottom: 10,
+    paddingLeft: 0,
+    backgroundColor: '#fff',
+    color: '#424242',
+  },
+
 });

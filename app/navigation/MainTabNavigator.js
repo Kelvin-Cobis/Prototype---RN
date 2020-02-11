@@ -10,6 +10,8 @@ import SettingsScreen from '../screens/CobrarScreen';
 import RetirarScreen from '../screens/RetirarScreen';
 import ConfirmationScreen from '../screens/ConfirmationScreen';
 import InfoTransaccionScreen from '../screens/InfoTransaccionScreen';
+import ContactosScreen from '../screens/ContactosScreen';
+import ConfirmacionPagoScreen from '../screens/ConfirmacionPagoScreen';
 
 
 
@@ -48,6 +50,9 @@ HomeStack.path = '';
 const LinksStack = createStackNavigator(
   {
     Links: LinksScreen,
+    Contactos: ContactosScreen,
+    ConfirmacionPago: ConfirmacionPagoScreen,
+    Confirmation: ConfirmationScreen
   },
   config
 );
@@ -98,7 +103,7 @@ const tabNavigator = createBottomTabNavigator({
   LinksStack,
   SettingsStack,
   RetirarStack,
-  
+
 
 });
 

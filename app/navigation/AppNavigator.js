@@ -46,6 +46,6 @@ export default createAppContainer(
 
   },
     {
-      initialRouteName: 'Aut',
+      initialRouteName: 'Test',
     })
 );

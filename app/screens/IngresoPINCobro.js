@@ -1,37 +1,31 @@
 import React, { Component } from 'react';
-import { Text, Image, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { Checkbox } from 'react-native-paper';
-import { Icon } from 'native-base';
+import { List, ListItem, Left, Body, Thumbnail, Text} from 'native-base';
+import { StyleSheet, Image, View, TouchableOpacity } from 'react-native';
+import { Icon } from 'react-native-elements'
+
 
 export default class SignIn extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      checkOne: false,
-      checkTwo: false,
-      checkThree: false
-    }
-  }
 
   render() {
-    const { navigate } = this.props.navigation;
-    return (
-      <View>
-        <View style={styles.welcomeImage}>
-          <Image style={{ width: '100%', height: 85, marginBottom: 10 }} source={require('../assets/images/confirmation--user.png')} />
-        </View>
 
-        <Text style={{ color: 'grey', fontSize: 11, marginHorizontal: 20, }}>
-          Para completar el proceso de creación de su
-          cuenta requerimos nos confirme la clave OTP enviada a su
-          teléfono 09 876 5432
-                  </Text>
+    return (
+      <View style={styles.contenedor}>
+
+        <View style={styles.cabecera}>
+          <View style={styles.center}>
+            <Image source={require('../assets/images/information.png')} />
+          </View>
+
+          <View style={styles.center}>
+            <Text style={{ fontSize: 12, color: '#4D7EAB' }}>Ingrese el PIN proporsionado por el contacto</Text>
+          </View>
+        </View>
 
         <View style={{
           justifyContent: "center",
-          flexDirection: "row"
+          flexDirection: "row",
+          marginTop: 15
         }}>
           <View style={styles.numberBox}>
 
@@ -105,8 +99,8 @@ export default class SignIn extends Component {
             </TouchableOpacity>
             <TouchableOpacity style={styles.numberCircle} 
             onPress={() => this.props.navigation.navigate('Index')}>
-              <Icon name="erase" type='Entypo'   color='#0179C3'/>
-            </TouchableOpacity>
+            <Image source={require('../assets/images/delete.png')} />
+          </TouchableOpacity>
           </View>
         </View>
 
@@ -160,6 +154,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#ffffff',
   },
-
+  contenedor: {
+    width: '100%',
+    height: '100%',
+  },
+  cabecera: {
+    width: '100%',
+    height: 50,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    marginTop: 40,
+    marginBottom: 20
+  },
+  center: {
+    alignItems: "center",
+    alignContent: "center"
+  },
 
 });

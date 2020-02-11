@@ -6,3 +6,4 @@ formik
 react-native-elements
 react-native-simple-radio-button
 react-native-paper
+npm install --save react-native-maps 
