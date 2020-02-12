@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { List, ListItem, Left, Body, Thumbnail } from 'native-base';
-import { Text, StyleSheet, Image, View, TouchableOpacity } from 'react-native';
+import { List, ListItem, Left, Body, Thumbnail, Text} from 'native-base';
+import { StyleSheet, Image, View, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements'
 
-export default class ConfirmationScreen extends Component {
+
+export default class SolicitudDePagoScreen extends Component {
 
 
   render() {
@@ -13,37 +14,37 @@ export default class ConfirmationScreen extends Component {
 
         <View style={styles.cabecera}>
           <View style={styles.center}>
-            <Image source={require('../assets/images/checked.png')} />
+            <Image source={require('../../assets/images/information.png')} />
           </View>
 
           <View style={styles.center}>
-            <Text style={{ fontSize: 13, color: '#76AB4D' }}>Transacción exitosa</Text>
+            <Text style={{ fontSize: 12, color: '#4D7EAB' }}>Has recibido una solicitud de pago</Text>
           </View>
         </View>
         <View style={styles.informacion}>
           <Text style={{ color: 'grey', fontSize: 12 }}>Referencia</Text>
-          <Text style={{ color: 'black', fontSize: 13 }}>1234567890</Text>
+          <Text style={{ color: 'black', fontSize: 14 }}>1234567890</Text>
         </View>
         <View style={styles.informacion}>
           <Text style={{ color: 'grey', fontSize: 12 }}>Monto</Text>
-          <Text style={{ color: 'black', fontSize: 15 }}>$50.00</Text>
+          <Text style={{ color: 'black', fontSize: 18 }}>$50.00</Text>
         </View>
         <View style={styles.informacion}>
           <Text style={{ color: 'grey', fontSize: 12 }}>Motivo</Text>
-          <Text style={{ color: 'black', fontSize: 13 }}>Orden #123</Text>
+          <Text style={{ color: 'black', fontSize: 14 }}>Pago JC</Text>
         </View>
         <View style={styles.solicitante}>
           <List>
             <View style={{ marginLeft: 20 }}>
-              <Text style={{ color: 'grey', fontSize: 13 }}>Contacto(s)</Text>
+              <Text style={{ color: 'grey', fontSize: 12 }}>Solicitante</Text>
             </View>
             <ListItem avatar>
               <Left>
-                <Thumbnail source={require('../assets/images/person.jpg')} />
+                <Thumbnail source={require('../../assets/images/person.jpg')} />
               </Left>
               <Body>
-                <Text style={{ color: 'black', fontSize: 14 }}>Francisco Mendoza</Text>
-                <Text note style={{ color: 'grey', fontSize: 13 }}>0987654321</Text>
+                <Text  style={{ color: 'black', fontSize: 14 }}>Francisco Mendoza</Text>
+                <Text note  style={{ color: 'grey', fontSize: 12 }}>0987654321</Text>
               </Body>
 
             </ListItem>
@@ -64,11 +65,28 @@ export default class ConfirmationScreen extends Component {
               borderColor: '#0179C3',
               borderWidth: 1,
             }}
-
+            
           >
+            
+            <Icon name='cross' type='entypo' color='#0179C3' />
+            <Text style={{ color: '#0179C3', fontSize: 12 }}>Rechazar</Text>
+          </TouchableOpacity>
 
-            <Icon name='share' color='#0179C3' />
-            <Text style={{ color: '#0179C3', fontSize: 12 }}>Compartir</Text>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Confirmation')}
+            style={{
+              width: 135,
+              height: 45,
+              flexDirection: 'row',
+              marginHorizontal: 10,
+              borderRadius: 30,
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#0179C3'
+            }}
+            
+          >
+            <Icon name='check' color='#ffffff' />
+            <Text style={{ color: '#ffffff', fontSize: 12 }}>Confirmar</Text>
           </TouchableOpacity>
 
         </View>
@@ -78,9 +96,9 @@ export default class ConfirmationScreen extends Component {
   }
 }
 
-ConfirmationScreen.navigationOptions = {
+SolicitudDePagoScreen.navigationOptions = {
   header: null,
-};
+}; 
 
 const styles = StyleSheet.create({
 
@@ -93,8 +111,8 @@ const styles = StyleSheet.create({
     height: 50,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    marginTop: 50,
-    marginBottom: 40,
+    marginTop: 40,
+    marginBottom: 20
   },
   center: {
     alignItems: "center",
@@ -104,7 +122,7 @@ const styles = StyleSheet.create({
     width: '90%',
     borderStyle: "dotted",
     justifyContent: 'space-around',
-    height: 35,
+    height: 40,
     marginTop: 20,
     marginHorizontal: 20,
     borderBottomColor: 'grey',
@@ -114,7 +132,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   fixToText: {
-    marginTop: 40,
+    marginTop: 90,
     flexDirection: 'row',
     alignSelf: 'center'
   },

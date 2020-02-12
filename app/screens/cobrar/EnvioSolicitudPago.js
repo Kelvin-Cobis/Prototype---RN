@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { List, ListItem, Left, Body, Thumbnail } from 'native-base';
-import { Text, StyleSheet, Image, View, TouchableOpacity } from 'react-native';
-import { Icon } from 'react-native-elements'
+import { List, ListItem, Left, Body, Thumbnail, Text } from 'native-base';
+import { StyleSheet, Image, View, TouchableOpacity } from 'react-native';
+import { Icon } from 'react-native-elements';
 
-export default class ConfirmationScreen extends Component {
+export default class HomeScreen extends Component {
 
 
   render() {
@@ -13,16 +13,26 @@ export default class ConfirmationScreen extends Component {
 
         <View style={styles.cabecera}>
           <View style={styles.center}>
-            <Image source={require('../assets/images/checked.png')} />
+            <Image source={require('../assets/images/information.png')} />
           </View>
 
           <View style={styles.center}>
-            <Text style={{ fontSize: 13, color: '#76AB4D' }}>Transacción exitosa</Text>
+            <Text style={{ fontSize: 12, color: '#4D7EAB' }}>Una solicitud de pago se ha enviado a tu(s) contacto(s){'\n'}
+              Recibirás una notificación de ser aprobada o rechazada
+    </Text>
           </View>
         </View>
         <View style={styles.informacion}>
           <Text style={{ color: 'grey', fontSize: 12 }}>Referencia</Text>
           <Text style={{ color: 'black', fontSize: 13 }}>1234567890</Text>
+        </View>
+        <View style={styles.informacion}>
+          <Text style={{ color: 'grey', fontSize: 12 }}>Estado</Text>
+          <Text style={{ color: 'black', fontSize: 13 }}>En espera de aprobación</Text>
+        </View>
+        <View style={styles.informacion}>
+          <Text style={{ color: 'grey', fontSize: 12 }}>Motivo</Text>
+          <Text style={{ color: 'black', fontSize: 13 }}>Pago JC</Text>
         </View>
         <View style={styles.informacion}>
           <Text style={{ color: 'grey', fontSize: 12 }}>Monto</Text>
@@ -51,7 +61,7 @@ export default class ConfirmationScreen extends Component {
         </View>
         <View style={styles.fixToText}>
 
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}
+          <TouchableOpacity
             style={{
               width: 135,
               height: 45,
@@ -78,9 +88,6 @@ export default class ConfirmationScreen extends Component {
   }
 }
 
-ConfirmationScreen.navigationOptions = {
-  header: null,
-};
 
 const styles = StyleSheet.create({
 
@@ -93,8 +100,8 @@ const styles = StyleSheet.create({
     height: 50,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    marginTop: 50,
-    marginBottom: 40,
+    marginTop: 30,
+    marginBottom: 20
   },
   center: {
     alignItems: "center",
@@ -104,7 +111,7 @@ const styles = StyleSheet.create({
     width: '90%',
     borderStyle: "dotted",
     justifyContent: 'space-around',
-    height: 35,
+    height: 30,
     marginTop: 20,
     marginHorizontal: 20,
     borderBottomColor: 'grey',

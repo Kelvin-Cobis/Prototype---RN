@@ -4,13 +4,13 @@ import TestScreen from '../screens/TestScreen';
 import MainTabNavigator from './MainTabNavigator';
 import CredentialScreen from '../screens/CredentialScreen';
 import IndexScreen from '../screens/IndexScreen';
-import SignInScreen from '../screens/SignInScreen';
-import SignInScreen2 from '../screens/SignInScreen-2';
-import SignInScreen3 from '../screens/SignInScreen-3';
-import SignInScreen4 from '../screens/SignInScreen-4';
+import SignInScreen from '../screens/autenticacion/SignInScreen';
+import SignInScreen2 from '../screens/autenticacion/SignInScreen-2';
+import SignInScreen3 from '../screens/autenticacion/SignInScreen-3';
+import SignInScreen4 from '../screens/autenticacion/SignInScreen-4';
 import SolicitudPagoScreen from '../screens/SolicitudPagoScreen';
 
-autnticacion = createStackNavigator({
+autenticacion = createStackNavigator({
   Index: IndexScreen,
   SignIn: SignInScreen,
   SignIn2: SignInScreen2,
@@ -19,33 +19,16 @@ autnticacion = createStackNavigator({
   Credential: CredentialScreen,
 
 });
-homeStackNavigation = createStackNavigator({
-  SolicitudPago: SolicitudPagoScreen,  
-});
 
 
 export default createAppContainer(
-  
+
   createSwitchNavigator({
-    // You could add another route here for authentication.
-    // Read more at https://reactnavigation.org/docs/en/auth-flow.html
-    
     Main: MainTabNavigator,
-    /*Credential: CredentialScreen,
-    Home: HomeScreen,
-    Index: IndexScreen,
-    Link: LinksScreen,
-    Retirar: RetirarScreen,
-    Settings: SettingsScreen,
-    SignIn: SignInScreen,*/
-    Aut: autnticacion,
+    Autenticacion: autenticacion,
     Test: TestScreen,
-    homeStak: homeStackNavigation,
-
-
-
   },
     {
-      initialRouteName: 'Test',
+      initialRouteName: 'Autenticacion',      
     })
 );
