@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, TextInput, ActivityIndicator, Text, Image, View, StyleSheet, TouchableOpacity, Icon, ImageBackground } from 'react-native';
+import { SafeAreaView, TextInput, ActivityIndicator,AsyncStorage, Text, Image, View, StyleSheet, TouchableOpacity, Icon, ImageBackground } from 'react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import RadioForm from 'react-native-simple-radio-button';
@@ -9,11 +9,25 @@ var radio_props = [
   { label: 'Deposito ordinario\nMovimientos mensuales superiores a 3 salarios mínimos.', value: 1 }
 ];
 export default class SignIn extends Component {
+
+  
+guardarDatosyContinuar = async (values) => {  
+  try {
+   await AsyncStorage.setItem('tipo',values.tipo);
+   await AsyncStorage.setItem('fechaDeExpedicion',values.fechaDeExpedicion);
+   await AsyncStorage.setItem('documentoDeIdentidad',values.documentoDeIdentidad);
+   await AsyncStorage.setItem('telefonoCelular',values.telefonoCelular);     
+  } catch (error) {
+  console.log('Error Async');
+  }
+  this.props.navigation.navigate('SignIn2')
+}
+
   render() {
     const { navigate } = this.props.navigation;
 
     return (
-      <View style={{
+      <View style={{ 
         backgroundColor: '#ffffff', width: '100%', height: '100%',
       }}>
         <TouchableOpacity
@@ -35,7 +49,7 @@ export default class SignIn extends Component {
             documentoDeIdentidad: '',
             telefonoCelular: ''
           }}
-          onSubmit={values => console.log(values)}
+          onSubmit={values => this.guardarDatosyContinuar(values)}
         >
           {({ handleChange, handleBlur, handleSubmit, values }) => (
             <View>
@@ -140,8 +154,8 @@ export default class SignIn extends Component {
                     alignItems: 'center',
                     backgroundColor: '#0179C3'
                   }}
-                  onPress={() => this.props.navigation.navigate('SignIn2')}
-                  //onPress={handleSubmit}
+                  //onPress={() => this.props.navigation.navigate('SignIn2')}
+                  onPress={handleSubmit}
 
                 >
                   <Text style={{ color: '#ffffff', fontSize: 12 }}>Continuar</Text>

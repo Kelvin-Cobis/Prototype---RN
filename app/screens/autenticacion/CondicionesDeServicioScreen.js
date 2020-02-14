@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Image, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, Image, View, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { Checkbox } from 'react-native-paper';
 
 export default class CondicionesDeServicioScreen extends Component {
@@ -13,6 +13,23 @@ export default class CondicionesDeServicioScreen extends Component {
             checkThree: false
         }
     }
+
+    validarCondiciones() {
+        if (this.state.checkOne && this.state.checkThree && this.state.checkThree) {
+            this.props.navigation.navigate('SignIn4')
+        } else {
+            Alert.alert(
+                'Condiciones de servicio',
+                'Debe aceptar las condiciones de servicio para poder continuar con el registro',
+                [                    
+                    { text: 'Aceptar'},
+                ],
+                
+            );
+        }
+
+    }
+
 
     render() {
         const { navigate } = this.props.navigation;
@@ -82,7 +99,7 @@ export default class CondicionesDeServicioScreen extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.botonConfirmar}
-                            onPress={() => this.props.navigation.navigate('SignIn4')}
+                            onPress={() => this.validarCondiciones()}
                         >
                             <Text style={{ color: '#ffffff', fontSize: 12 }}>Continuar</Text>
                         </TouchableOpacity>
@@ -118,7 +135,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginVertical: 10,
     },
-    botonConfirmar:{
+    botonConfirmar: {
         width: 135,
         height: 45,
         marginBottom: 5,
@@ -128,7 +145,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#0179C3',
         marginHorizontal: 15
     },
-    botonCancelar:{
+    botonCancelar: {
         width: 135,
         height: 45,
         marginBottom: 5,

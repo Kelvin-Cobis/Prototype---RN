@@ -1,9 +1,9 @@
 prop-types --save
 native-base --save
-yup
-react-native-formik
-formik
-react-native-elements
-react-native-simple-radio-button
-react-native-paper
+npm install yup
+npm install react-native-formik
+npm install formik
+npm install react-native-elements
+npm install react-native-simple-radio-button
+npm install react-native-paper
 npm install --save react-native-maps 

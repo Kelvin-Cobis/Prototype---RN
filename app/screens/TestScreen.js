@@ -1,42 +1,41 @@
-
-import React, { Component } from 'react';
-import { Button, TextInput, View } from 'react-native';
-import { Formik } from 'formik';
-
-export default class MyReactNativeForm extends Component {
+import React from 'react';
+ 
+import { View, Text } from 'react-native';
+import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
+ 
+class App extends React.PureComponent {
+  _menu = null;
+ 
+  setMenuRef = ref => {
+    this._menu = ref;
+  };
+ 
+  hideMenu = () => {
+    this._menu.hide();
+  };
+ 
+  showMenu = () => {
+    this._menu.show();
+  };
+ 
   render() {
     return (
-      <View style={{ marginTop: 100 }}>
-        <Formik
-          initialValues={{ email: '', passw: '' }}
-          onSubmit={values => console.log(values)}
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Menu
+          ref={this.setMenuRef}
+          button={<Text onPress={this.showMenu}>Show menu</Text>}
         >
-          {({ handleChange, handleBlur, handleSubmit, values }) => (
-            <View>
-              <View>  
-                <TextInput
-                  onChangeText={handleChange('email')}
-                  onBlur={handleBlur('email')}
-                  value={values.email}
-                />
-              </View>
-              <View>
-              <TextInput
-                onChangeText={handleChange('passw')}
-                onBlur={handleBlur('passw')}
-                value={values.passw}
-              />
-              </View>
-              <Button onPress={handleSubmit} title="Submit" />
-            </View>
-
-
-
-
-          )}
-        </Formik>
+          <MenuItem onPress={this.hideMenu}>Menu item 1</MenuItem>
+          <MenuItem onPress={this.hideMenu}>Menu item 2</MenuItem>
+          <MenuItem onPress={this.hideMenu} disabled>
+            Menu item 3
+          </MenuItem>
+          <MenuDivider />
+          <MenuItem onPress={this.hideMenu}>Menu item 4</MenuItem>
+        </Menu>
       </View>
     );
   }
-
 }
+ 
+export default App;

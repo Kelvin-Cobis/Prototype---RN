@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
-import { SafeAreaView, TextInput, ActivityIndicator, Text, Image, View, StyleSheet, TouchableOpacity, Icon, ImageBackground } from 'react-native';
+import { SafeAreaView, TextInput, ActivityIndicator, AsyncStorage, Text, Image, View, StyleSheet, TouchableOpacity, Icon, ImageBackground } from 'react-native';
 import { Formik } from 'formik';
 
 export default class SignIn extends Component {
 
+    guardarDatosyContinuar = async (values) => {
+        try {
+            await AsyncStorage.setItem('nombres', values.nombres);
+            await AsyncStorage.setItem('apellidos', values.apellidos);
+            await AsyncStorage.setItem('fechaDeNacimiento', values.fechaDeNacimiento);
+            await AsyncStorage.setItem('genero', values.genero);
+            await AsyncStorage.setItem('email', values.email);
+        } catch (error) {
+            console.log('Error Async');
+        }
+        this.props.navigation.navigate('SignIn3')
+    }
 
     render() {
         const { navigate } = this.props.navigation;
@@ -21,10 +33,10 @@ export default class SignIn extends Component {
                         apellidos: '',
                         fechaDeNacimiento: '',
                         genero: '',
-                        email:'',
+                        email: '',
 
                     }}
-                    onSubmit={values => console.log(values)}
+                    onSubmit={values => this.guardarDatosyContinuar(values)}
                 >
                     {({ handleChange, handleBlur, handleSubmit, values }) => (
                         <View>
@@ -121,13 +133,13 @@ export default class SignIn extends Component {
                                     <TouchableOpacity
                                         style={styles.botonRegresar}
                                         onPress={() => this.props.navigation.navigate('SignIn')}
+                                        
                                     >
                                         <Text style={{ color: '#0179C3', fontSize: 12 }}>Regresar</Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity
                                         style={styles.botonContinuar}
-                                        onPress={() => this.props.navigation.navigate('SignIn3')}
-                                        //onPress={handleSubmit}
+                                        onPress={handleSubmit}
                                     >
                                         <Text style={{ color: '#ffffff', fontSize: 12 }}>Continuar</Text>
                                     </TouchableOpacity>
