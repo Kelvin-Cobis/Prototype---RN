@@ -44,7 +44,7 @@ export default class ContactosScreen extends Component {
             <Text style={{ fontSize: 12, color: 'grey', marginStart: 10 , marginTop:15}}>
               Contactos frecuentes
                </Text>
-            <ListItem avatar onPress={() => this.props.navigation.navigate('Links')}>
+            <ListItem avatar onPress={() => this.props.navigation.navigate('Cobrar')}>
               <Left>
                 <View style={{
                   borderRadius: 100,
@@ -66,7 +66,7 @@ export default class ContactosScreen extends Component {
                 </View>
               </Body>
             </ListItem>
-            <ListItem avatar onPress={() => this.props.navigation.navigate('Links')}>
+            <ListItem avatar onPress={() => this.props.navigation.navigate('Cobrar')}>
               <Left>
                 <View style={{
                   borderRadius: 100,
@@ -88,7 +88,7 @@ export default class ContactosScreen extends Component {
                 </View>
               </Body>
             </ListItem>
-            <ListItem avatar onPress={() => this.props.navigation.navigate('Links')}>
+            <ListItem avatar onPress={() => this.props.navigation.navigate('Cobrar')}>
               <Left>
                 <View style={{
                   borderRadius: 100,
@@ -110,7 +110,7 @@ export default class ContactosScreen extends Component {
                 </View>
               </Body>
             </ListItem>
-            <ListItem avatar onPress={() => this.props.navigation.navigate('Links')}>
+            <ListItem avatar onPress={() => this.props.navigation.navigate('Cobrar')}>
               <Left>
                 <View style={{
                   borderRadius: 100,
@@ -132,7 +132,7 @@ export default class ContactosScreen extends Component {
                 </View>
               </Body>
             </ListItem>
-            <ListItem avatar onPress={() => this.props.navigation.navigate('Links')}>
+            <ListItem avatar onPress={() => this.props.navigation.navigate('Cobrar')}>
               <Left>
                 <View style={{
                   borderRadius: 100,
@@ -154,7 +154,7 @@ export default class ContactosScreen extends Component {
                 </View>
               </Body>
             </ListItem>
-            <ListItem avatar onPress={() => this.props.navigation.navigate('Links')}>
+            <ListItem avatar onPress={() => this.props.navigation.navigate('Cobrar')}>
               <Left>
                 <View style={{
                   borderRadius: 100,

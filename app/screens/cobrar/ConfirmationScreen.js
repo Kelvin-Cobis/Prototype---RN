@@ -13,7 +13,7 @@ export default class ConfirmationScreen extends Component {
 
         <View style={styles.cabecera}>
           <View style={styles.center}>
-            <Image source={require('../assets/images/checked.png')} />
+            <Image source={require('../../assets/images/checked.png')} />
           </View>
 
           <View style={styles.center}>
@@ -39,7 +39,7 @@ export default class ConfirmationScreen extends Component {
             </View>
             <ListItem avatar>
               <Left>
-                <Thumbnail source={require('../assets/images/person.jpg')} />
+                <Thumbnail source={require('../../assets/images/person.jpg')} />
               </Left>
               <Body>
                 <Text style={{ color: 'black', fontSize: 14 }}>Francisco Mendoza</Text>
@@ -51,7 +51,7 @@ export default class ConfirmationScreen extends Component {
         </View>
         <View style={styles.fixToText}>
 
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Cobrar')}
             style={{
               width: 135,
               height: 45,

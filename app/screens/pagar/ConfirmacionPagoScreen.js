@@ -23,14 +23,14 @@ export default class ConfirmationScreen extends Component {
 
         <View style={styles.cabecera}>
           <View style={styles.center}>
-            <Image source={require('../assets/images/confirmationIcon.png')} />
+            <Image source={require('../../assets/images/confirmationIcon.png')} />
           </View>
 
           <View style={styles.center}>
             <Text style={{ fontSize: 13, color: '#4D7EAB', marginTop: 10 }}>Confirmación de pago</Text>
             <Text style={{ fontSize: 24, marginTop: 5 }}>$50.00</Text>
             <Text style={{ fontSize: 16 }}>Pago JC</Text>
-            <Image style={{ width: 29, height: 142, marginVertical: 15 }} source={require('../assets/images/downArrow.png')} />
+            <Image style={{ width: 29, height: 142, marginVertical: 15 }} source={require('../../assets/images/downArrow.png')} />
             <View style={{
               borderRadius: 100,
               width: 56,

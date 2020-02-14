@@ -16,38 +16,41 @@ export default class PagoQRScreen extends Component {
   });
   render() {
     return (
-      <View style={{ height:'100%', width:'100%', backgroundColor: 'rgba(52, 52, 52, 0.8)'}}>
+      <View style={{ height: '100%', width: '100%', backgroundColor: 'rgba(52, 52, 52, 0.8)' }}>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{
           marginTop: 40,
           marginBottom: 15,
           flexDirection: "row"
         }}>
-          <TouchableOpacity style={styles.optionsHeader}>
+          <TouchableOpacity style={styles.optionsHeader}
+            onPress={() => this.props.navigation.navigate('Links')}
+          >
+
             <View style={styles.optionHeader}>
-              <Image source={require('../assets/images/transfer-white.png')} />
+              <Image source={require('../../assets/images/transfer-white.png')} />
             </View>
             <Text style={{ color: '#ffffff' }}>Pasa plata</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionsHeader}>
             <View style={styles.optionSlectedHeader}>
-              <Image source={require('../assets/images/barcode-qr.png')} />
+              <Image source={require('../../assets/images/barcode-qr.png')} />
             </View>
             <Text style={{ color: '#ffffff' }} >Pago con QR</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionsHeader}>
             <View style={styles.optionHeader}>
-              <Image source={require('../assets/images/bank-account.png')} />
+              <Image source={require('../../assets/images/bank-account.png')} />
             </View>
             <Text style={{ color: '#ffffff' }} >Pago factura</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionsHeader}>
             <View style={styles.optionHeader}>
-              <Image source={require('../assets/images/mobile-white.png')} />
+              <Image source={require('../../assets/images/mobile-white.png')} />
             </View>
             <Text style={{ color: '#ffffff' }} >Recarga</Text>
           </TouchableOpacity>
         </ScrollView>
-        
+
       </View>
     );
   }
@@ -55,7 +58,7 @@ export default class PagoQRScreen extends Component {
 
 
 const styles = StyleSheet.create({
-    optionsHeader: {
+  optionsHeader: {
     marginHorizontal: 10,
     alignItems: "center",
     alignContent: "center"

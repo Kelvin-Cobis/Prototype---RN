@@ -14,7 +14,7 @@ export default class SignIn extends Component {
 
         <View style={styles.cabecera}>
           <View style={styles.center}>
-            <Image source={require('../assets/images/information.png')} />
+            <Image source={require('../../assets/images/information.png')} />
           </View>
 
           <View style={styles.center}>
@@ -98,8 +98,8 @@ export default class SignIn extends Component {
               <Text style={{ color: '#0179C3', fontSize: 40 }}>0</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.numberCircle} 
-            onPress={() => this.props.navigation.navigate('Index')}>
-            <Image source={require('../assets/images/delete.png')} />
+            onPress={() => this.props.navigation.navigate('ConfirmationCobrar')}>
+            <Image source={require('../../assets/images/delete.png')} />
           </TouchableOpacity>
           </View>
         </View>

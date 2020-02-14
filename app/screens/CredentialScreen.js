@@ -30,7 +30,7 @@ export default class CredentialScreen extends Component {
 
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress={() => { console.log('PIN') }} style={styles.avatarContainer}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('IngresarPIN')} style={styles.avatarContainer}>
 
                                 <Image source={require('../assets/images/autenticacionPIN.png')} />
 
@@ -40,10 +40,6 @@ export default class CredentialScreen extends Component {
 
 
                     </ImageBackground>
-
-
-
-
 
                 </View>
             </View>

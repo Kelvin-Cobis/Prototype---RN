@@ -8,7 +8,6 @@ export default class SolicitudDePagoScreen extends Component {
 
 
   render() {
-
     return (
       <View style={styles.contenedor}>
 

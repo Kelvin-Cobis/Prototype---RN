@@ -24,28 +24,31 @@ export default class CobrarScreen extends Component {
         }}>
           <TouchableOpacity style={styles.optionsHeader}>
             <View style={styles.optionSlectedHeader}>
-              <Image source={require('../assets/images/mobile-transfer--left.png')} />
+              <Image source={require('../../assets/images/mobile-transfer--left.png')} />
             </View>
-            <Text style={{ color: '#0179C3' }}>Pide plata</Text>
+            <Text style={{ color: '#0179C3', fontSize: 12 }}>Pide plata</Text>
           </TouchableOpacity>
-        
+
+          <TouchableOpacity style={styles.optionsHeader}
+            onPress={() => this.props.navigation.navigate('CobroPIN')}
+          >
+            <View style={styles.optionHeader}>
+              <Image source={require('../../assets/images/mobile--otp.png')} />
+            </View>
+            <Text style={{ fontSize: 12 }}>Cobro con PIN</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.optionsHeader}
+            onPress={() => this.props.navigation.navigate('CobroQR')}   >
+            <View style={styles.optionHeader}>
+              <Image source={require('../../assets/images/qrLayer.png')} />
+            </View>
+            <Text style={{ fontSize: 12 }}>Pago con QR</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={styles.optionsHeader}>
             <View style={styles.optionHeader}>
-              <Image source={require('../assets/images/mobile--otp.png')} />
+              <Image source={require('../../assets/images/mobile.png')} />
             </View>
-            <Text>Cobro con PIN</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.optionsHeader}>
-            <View style={styles.optionHeader}>
-              <Image source={require('../assets/images/qrLayer.png')} />
-            </View>
-            <Text>Pago con QR</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.optionsHeader}>
-            <View style={styles.optionHeader}>
-              <Image source={require('../assets/images/mobile.png')} />
-            </View>
-            <Text>Cobro con NFC</Text>
+            <Text style={{ fontSize: 12 }}>Cobro con NFC</Text>
           </TouchableOpacity>
         </ScrollView>
         <ScrollView style={{}}>
@@ -65,18 +68,26 @@ export default class CobrarScreen extends Component {
           </View>
           <Text style={{ color: 'grey', fontSize: 14, marginLeft: 25, marginVertical: 10, fontWeight: 'bold' }}>
             Seleccionar un contacto</Text>
-          <View style={{ flexDirection: "row", alignContent: "center", alignItems: "center", marginLeft: 25, marginVertical: 10 }}>
-            <TouchableOpacity style={styles.circleTouchable}>
-              <Image source={require('../assets/images/search.png')} />
-            </TouchableOpacity>
-            <Text style={{ color: '#0179C3', fontSize: 16 }}>Buscar contacto</Text>
-          </View>
+            <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Contactos')}
+            style={{
+              flexDirection: 'row',
+              alignContent: 'center',
+              alignItems: 'center',
+              marginLeft: 25,
+              marginVertical: 10
+            }}>
+            <View style={styles.circleTouchable} >
+              <Image source={require('../../assets/images/search.png')} />
+            </View>
+            <Text style={{ color: '#0179C3', fontSize: 14 }}>Buscar contacto</Text>
+          </TouchableOpacity>
           <View style={{ borderBottomWidth: 0.17, borderColor: 'grey' }} />
           <View style={{ flexDirection: "row", alignContent: "center", alignItems: "center", marginLeft: 25, marginVertical: 10 }}>
             <TouchableOpacity style={styles.circleTouchable}>
-              <Image source={require('../assets/images/plus.png')} />
+              <Image source={require('../../assets/images/plus.png')} />
             </TouchableOpacity>
-            <Text style={{ color: '#0179C3', fontSize: 16 }}>Agrear nuevo contacto</Text>
+            <Text style={{ color: '#0179C3', fontSize: 14 }}>Agrear nuevo contacto</Text>
           </View>
           <View style={{
             alignContent: 'center',
@@ -87,8 +98,10 @@ export default class CobrarScreen extends Component {
               alignContent: "center",
               alignItems: "center",
             }}>
-              <TouchableOpacity style={styles.buttonTouchable}>
-                <Image source={require('../assets/images/solicitar--opt.png')} />
+              <TouchableOpacity style={styles.buttonTouchable}
+              onPress={() => this.props.navigation.navigate('EnvioSolicitudPago')}
+              >
+                <Image source={require('../../assets/images/solicitar--opt.png')} />
                 <Text style={{ color: '#ffffff', fontSize: 12, marginLeft: 7 }}>Solicitar</Text>
               </TouchableOpacity>
               <Text style={{ color: 'grey', fontSize: 11, marginTop: 5 }}>Ingrese los datos del pago para continuar</Text>
@@ -99,7 +112,7 @@ export default class CobrarScreen extends Component {
             }}>
             </View>
           </View>
-        
+
         </ScrollView>
       </View>
     );

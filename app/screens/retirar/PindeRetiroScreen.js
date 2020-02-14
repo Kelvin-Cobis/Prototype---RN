@@ -14,7 +14,7 @@ export default class SolicitudDePagoScreen extends Component {
 
         <View style={styles.cabecera}>
           <View style={styles.center}>
-            <Image source={require('../assets/images/information.png')} />
+            <Image source={require('../../assets/images/information.png')} />
           </View>
 
           <View style={styles.center}>
@@ -31,7 +31,7 @@ export default class SolicitudDePagoScreen extends Component {
           <Text style={{fontSize:40}}>......</Text>
         </View>
         <View style={styles.fixToText}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Confirmation')}
+          <TouchableOpacity 
             style={{
               width: 97,
               height: 45,
@@ -59,7 +59,7 @@ export default class SolicitudDePagoScreen extends Component {
 }
 
 SolicitudDePagoScreen.navigationOptions = {
-  header: null,
+
 };
 
 const styles = StyleSheet.create({
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     height: 50,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    marginTop: 40,
+    marginTop: 20,
     marginBottom: 20
   },
   center: {

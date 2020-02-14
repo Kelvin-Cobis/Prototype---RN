@@ -20,7 +20,7 @@ export default class SolicitudDePagoScreen extends Component {
           <Text style={{ color: 'grey', fontSize: 11, marginLeft: 10 }}>Retira desde $2,000 a $2,000,000</Text>
         </View>
         <View style={styles.fixToText}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Confirmation')}
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('InformacionDeRetiro')}
             style={{
               width: 135,
               height: 45,
@@ -45,7 +45,7 @@ export default class SolicitudDePagoScreen extends Component {
 }
 
 SolicitudDePagoScreen.navigationOptions = {
-  header: null,
+  
 };
 
 const styles = StyleSheet.create({
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   contenedor: {
     width: '100%',
     height: '100%',
-    marginTop:100,
+    marginTop:30,
   },
   cabecera: {
     width: '100%',

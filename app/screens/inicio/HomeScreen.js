@@ -66,7 +66,7 @@ export default class HomeScreen extends Component {
                   <Text style={{ fontSize: 10 }}>14 de enero</Text>
                 </Right>
               </ListItem>
-            <ListItem avatar onPress={() => this.props.navigation.navigate('homeStak')}>
+            <ListItem avatar onPress={() => this.props.navigation.navigate('SolicitudPago')}>
               <Left>
                 <Thumbnail source={require('../../assets/images/person.jpg')} />
               </Left>
@@ -90,7 +90,7 @@ export default class HomeScreen extends Component {
             <Text style={{ fontSize: 12, color: 'grey', marginStart: 10, marginTop: 10 }}>
               Transacciones anteriores
                </Text>
-              <ListItem avatar onPress={() => this.props.navigation.navigate('InfoTransaccion')}>
+              <ListItem avatar onPress={() => this.props.navigation.navigate('SolicitudPago')}>
                 <Left>
                   <Thumbnail source={require('../../assets/images/person.jpg')} />
                 </Left>

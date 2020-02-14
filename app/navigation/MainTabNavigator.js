@@ -1,17 +1,31 @@
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/inicio/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/CobrarScreen';
-import RetirarScreen from '../screens/RetirarScreen';
+import LinksScreen from '../screens/pagar/PagosScreen';
+import CobrarScreen from '../screens/cobrar/CobrarScreen';
+import RetirarScreen from '../screens/retirar/RetirarScreen';
 import ConfirmationScreen from '../screens/inicio/ConfirmationScreen';
+import ConfirmationScreenPagar from '../screens/pagar/PagoExitosoScreen';
 import InfoTransaccionScreen from '../screens/inicio/InfoTransaccionScreen';
-import ContactosScreen from '../screens/ContactosScreen';
-import ConfirmacionPagoScreen from '../screens/ConfirmacionPagoScreen';
+import ContactosScreenPagar from '../screens/pagar/ContactosScreen';
+
+import CobroPINScreen from '../screens/cobrar/CobroPINScreen';
+import CobroQRScreen from '../screens/cobrar/CobroQRScreen';
+import ContactosScreenCobrar from '../screens/cobrar/ContactosScreen';
+import EnvioSolicitudPago from '../screens/cobrar/EnvioSolicitudPago';
+import ConfirmationScreenCobrar from '../screens/cobrar/ConfirmationScreen';
+
+import MontoaRetirarScreen from '../screens/retirar/MontoaRetirarScreen';
+import InformacionDeRetiro from '../screens/retirar/InformacionDeRetiro';
+import PindeRetiroScreen from '../screens/retirar/PindeRetiroScreen';
+
+
 
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+
+
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -23,7 +37,6 @@ const HomeStack = createStackNavigator(
     Home: HomeScreen,
     Confirmation: ConfirmationScreen,
     InfoTransaccion: InfoTransaccionScreen,
-
   },
   config
 );
@@ -46,9 +59,9 @@ HomeStack.path = '';
 const LinksStack = createStackNavigator(
   {
     Links: LinksScreen,
-    Contactos: ContactosScreen,
-    ConfirmacionPago: ConfirmacionPagoScreen,
-    Confirmation: ConfirmationScreen
+    Contactos: ContactosScreenPagar,
+    //    ConfirmacionPago: ConfirmacionPagoScreen,
+    TransaccionExitosa: ConfirmationScreenPagar
   },
   config
 );
@@ -63,7 +76,14 @@ LinksStack.navigationOptions = {
 LinksStack.path = '';
 
 const SettingsStack = createStackNavigator(
-  { Settings: SettingsScreen, },
+  {
+    Cobrar: CobrarScreen,
+    CobroQR: CobroQRScreen,
+    CobroPIN: CobroPINScreen ,
+    Contactos: ContactosScreenCobrar,
+    EnvioSolicitudPago:EnvioSolicitudPago,
+    ConfirmationCobrar:ConfirmationScreenCobrar,
+  },
   config
 );
 SettingsStack.navigationOptions = {
@@ -78,6 +98,9 @@ SettingsStack.path = '';
 const RetirarStack = createStackNavigator(
   {
     Retirar: RetirarScreen,
+    MontoaRetirar:MontoaRetirarScreen,
+    InformacionDeRetiro: InformacionDeRetiro,
+    PindeRetiro:PindeRetiroScreen,
   },
   config
 );

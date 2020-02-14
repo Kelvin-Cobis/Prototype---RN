@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { List, ListItem, Left, Body, Right, Thumbnail } from 'native-base';
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import { List, ListItem, Left, Body, Thumbnail } from 'native-base';
+import { Text, StyleSheet, Image, View, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements'
 
 export default class ConfirmationScreen extends Component {
@@ -11,13 +11,14 @@ export default class ConfirmationScreen extends Component {
     return (
       <View style={styles.contenedor}>
 
-        <View style={styles.informacion}>
-          <Text style={{ color: 'grey', fontSize: 12 }}>Tipo de transacción</Text>
-          <Text style={{ color: 'black', fontSize: 13 }}>Pago</Text>
-        </View>
-        <View style={styles.informacion}>
-          <Text style={{ color: 'grey', fontSize: 12 }}>Fecha</Text>
-          <Text style={{ color: 'black', fontSize: 13 }}>12 de enero</Text>
+        <View style={styles.cabecera}>
+          <View style={styles.center}>
+            <Image source={require('../../assets/images/checked.png')} />
+          </View>
+
+          <View style={styles.center}>
+            <Text style={{ fontSize: 13, color: '#76AB4D' }}>Transacción exitosa</Text>
+          </View>
         </View>
         <View style={styles.informacion}>
           <Text style={{ color: 'grey', fontSize: 12 }}>Referencia</Text>
@@ -34,11 +35,11 @@ export default class ConfirmationScreen extends Component {
         <View style={styles.solicitante}>
           <List>
             <View style={{ marginLeft: 20 }}>
-              <Text style={{ color: 'grey', fontSize: 13 }}>Contacto</Text>
+              <Text style={{ color: 'grey', fontSize: 13 }}>Contacto(s)</Text>
             </View>
             <ListItem avatar>
               <Left>
-                <Thumbnail source={require('../assets/images/person.jpg')} />
+                <Thumbnail source={require('../../assets/images/person.jpg')} />
               </Left>
               <Body>
                 <Text style={{ color: 'black', fontSize: 14 }}>Francisco Mendoza</Text>
@@ -50,7 +51,7 @@ export default class ConfirmationScreen extends Component {
         </View>
         <View style={styles.fixToText}>
 
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Links')}
             style={{
               width: 135,
               height: 45,
@@ -86,7 +87,6 @@ const styles = StyleSheet.create({
   contenedor: {
     width: '100%',
     height: '100%',
-    marginTop: 30,
   },
   cabecera: {
     width: '100%',

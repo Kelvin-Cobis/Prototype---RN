@@ -41,7 +41,7 @@ export default class SolicitudDePagoScreen extends Component {
             </View>
             <ListItem avatar onPress={() => this.props.navigation.navigate('SolicitudPago')}>
               <Left>
-                <Thumbnail source={require('../assets/images/ubicacion.png')} />
+                <Thumbnail source={require('../../assets/images/ubicacion.png')} />
               </Left>
               <Body>
                 <View style={{ justifyContent: 'center', marginTop: 6, marginBottom:7 }}>
@@ -60,7 +60,7 @@ export default class SolicitudDePagoScreen extends Component {
         </View>
         <View style={styles.fixToText}>
 
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Confirmation')}
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('PindeRetiro')}
             style={{
               width: 135,
               height: 45,
@@ -85,7 +85,6 @@ export default class SolicitudDePagoScreen extends Component {
 }
 
 SolicitudDePagoScreen.navigationOptions = {
-  header: null,
 };
 
 const styles = StyleSheet.create({
@@ -99,7 +98,7 @@ const styles = StyleSheet.create({
     height: 50,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    marginTop: 40,
+    marginTop: 10,
     marginBottom: 20
   },
   center: {
@@ -111,7 +110,7 @@ const styles = StyleSheet.create({
     borderStyle: "dotted",
     justifyContent: 'space-around',
     height: 40,
-    marginTop: 20,
+    marginTop: 16,
     marginHorizontal: 20,
     borderBottomColor: 'grey',
     borderBottomWidth: 0.3,
@@ -120,7 +119,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   fixToText: {
-    marginTop: 60,
+    marginTop: 30,
     flexDirection: 'row',
     alignSelf: 'center'
   },

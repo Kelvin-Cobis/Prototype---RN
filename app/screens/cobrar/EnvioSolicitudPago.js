@@ -3,7 +3,7 @@ import { List, ListItem, Left, Body, Thumbnail, Text } from 'native-base';
 import { StyleSheet, Image, View, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 
-export default class HomeScreen extends Component {
+export default class EnvioSolicitudPago extends Component {
 
 
   render() {
@@ -13,7 +13,7 @@ export default class HomeScreen extends Component {
 
         <View style={styles.cabecera}>
           <View style={styles.center}>
-            <Image source={require('../assets/images/information.png')} />
+            <Image source={require('../../assets/images/information.png')} />
           </View>
 
           <View style={styles.center}>
@@ -49,7 +49,7 @@ export default class HomeScreen extends Component {
             </View>
             <ListItem avatar>
               <Left>
-                <Thumbnail source={require('../assets/images/person.jpg')} />
+                <Thumbnail source={require('../../assets/images/person.jpg')} />
               </Left>
               <Body>
                 <Text style={{ color: 'black', fontSize: 14 }}>Francisco Mendoza</Text>
@@ -88,6 +88,9 @@ export default class HomeScreen extends Component {
   }
 }
 
+EnvioSolicitudPago.navigationOptions = {
+  header: null,
+};
 
 const styles = StyleSheet.create({
 
