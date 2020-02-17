@@ -56,5 +56,6 @@ export default createAppContainer(
   },
     {
       initialRouteName: 'Autenticacion',      
+      //initialRouteName: 'Test',      
     })
 );

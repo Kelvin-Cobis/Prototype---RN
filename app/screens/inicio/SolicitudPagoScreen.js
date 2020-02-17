@@ -5,12 +5,16 @@ import { Icon } from 'react-native-elements'
 
 
 export default class SolicitudDePagoScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {transaccionPendiente: this.props.navigation.state.params.transaccionPendiente};
 
+  }
 
   render() {
     return (
       <View style={styles.contenedor}>
-
+        {console.log(this.state.transaccionPendiente)}
         <View style={styles.cabecera}>
           <View style={styles.center}>
             <Image source={require('../../assets/images/information.png')} />

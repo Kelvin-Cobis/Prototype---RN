@@ -1,24 +1,77 @@
 import React, { Component } from 'react';
-import { List, ListItem, Left, Body, Thumbnail, Text} from 'native-base';
-import { StyleSheet, Image, View, TouchableOpacity } from 'react-native';
+import { List, ListItem, Left, Body, Thumbnail, Text } from 'native-base';
+import { StyleSheet, Image, View, TouchableOpacity, AsyncStorage, ToastAndroid } from 'react-native';
 import { Icon } from 'react-native-elements'
 
 
 export default class SignIn extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = { count: [] }
+  }
+
+  registerDigit(digit) {
+    const pin = [...this.state.pin, digit];
+    if (pin.length === 4) {
+      const user = this._getUser
+      if (pin === user.password)
+        this.props.navigation.navigate('Main')
+      else {
+        ToastAndroid.show('Credenciales incorrectas', ToastAndroid.SHORT);
+      }
+    }
+    this.setState(() => {
+      return {
+        pin
+      }
+    })
+  }
+
+  onPress = (digit) => {
+    let count = this.state.count + digit
+    if (count.length === 4) {
+      let pin = "cobis"
+      this._getUser().then(user => {
+        pin += count
+        console.log(user)
+        if (pin === user.password)
+          this.props.navigation.navigate('Main')
+        else {
+          ToastAndroid.show('Credenciales incorrectas', ToastAndroid.SHORT);
+          count = []
+        }
+      })
+    }
+    this.setState({
+      count
+    })
+  }
+
+
+  _getUser = async () => {
+    const user = {}
+    try {
+      user.email = await AsyncStorage.getItem('email');
+      user.password = await AsyncStorage.getItem('password');
+      user.uid = await AsyncStorage.getItem('uid');
+    } catch (error) {
+      console.log(error);
+    }
+    return user
+  }
 
   render() {
-
+    const count = this.state.count
     return (
       <View style={styles.contenedor}>
-
         <View style={styles.cabecera}>
           <View style={styles.center}>
             <Image source={require('../assets/images/information.png')} />
           </View>
 
           <View style={styles.center}>
-            <Text style={{ fontSize: 12, color: '#4D7EAB' }}>Ingrese el PIN proporsionado por el contacto</Text>
+            <Text style={{ fontSize: 12, color: '#4D7EAB' }}>Ingrese su count de autenticación</Text>
           </View>
         </View>
 
@@ -28,13 +81,24 @@ export default class SignIn extends Component {
           marginTop: 15
         }}>
           <View style={styles.numberBox}>
-
+            <Text style={{
+              color: '#0179C3', fontSize: 40
+            }}>{this.state.count[0]}</Text>
           </View>
           <View style={styles.numberBox}>
+            <Text style={{
+              color: '#0179C3', fontSize: 40
+            }}>{this.state.count[1]}</Text>
           </View>
           <View style={styles.numberBox}>
+            <Text style={{
+              color: '#0179C3', fontSize: 40
+            }}>{this.state.count[2]}</Text>
           </View>
           <View style={styles.numberBox}>
+            <Text style={{
+              color: '#0179C3', fontSize: 40
+            }}>{this.state.count[3]}</Text>
           </View>
         </View>
 
@@ -44,14 +108,14 @@ export default class SignIn extends Component {
             justifyContent: "center",
             flexDirection: "row"
           }}>
-            <TouchableOpacity style={styles.numberCircle}>
+            <TouchableOpacity style={styles.numberCircle} onPress={() => this.onPress(1)}>
               <Text style={{ color: '#0179C3', fontSize: 40 }}>1</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.numberCircle}>
+            <TouchableOpacity style={styles.numberCircle} onPress={() => this.onPress(2)}>
               <Text style={{ color: '#0179C3', fontSize: 40 }}>2</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.numberCircle}>
-              <Text style={{ color: '#0179C3', fontSize: 40 }}>3</Text>
+              <Text style={{ color: '#0179C3', fontSize: 40 }} onPress={() => this.onPress(3)}>3</Text>
             </TouchableOpacity>
           </View>
           <View style={{
@@ -59,27 +123,29 @@ export default class SignIn extends Component {
             flexDirection: "row"
           }}>
             <TouchableOpacity style={styles.numberCircle}>
-              <Text style={{ color: '#0179C3', fontSize: 40 }}>4</Text>
+              <Text style={{ color: '#0179C3', fontSize: 40 }} onPress={() => this.onPress(4)}>4</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.numberCircle}>
-              <Text style={{ color: '#0179C3', fontSize: 40 }}>5</Text>
+              <Text style={{ color: '#0179C3', fontSize: 40 }} onPress={() => this.onPress(5)}>5</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.numberCircle}>
-              <Text style={{ color: '#0179C3', fontSize: 40 }}>6</Text>
+              <Text style={{ color: '#0179C3', fontSize: 40 }} onPress={() => this.onPress(6)}>6</Text>
             </TouchableOpacity>
           </View>
           <View style={{
             justifyContent: "center",
             flexDirection: "row"
           }}>
-            <TouchableOpacity style={styles.numberCircle}>
-              <Text style={{ color: '#0179C3', fontSize: 40 }}>7</Text>
+            <TouchableOpacity style={styles.numberCircle}
+
+            >
+              <Text style={{ color: '#0179C3', fontSize: 40 }} onPress={() => this.onPress(7)}>7</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.numberCircle}>
-              <Text style={{ color: '#0179C3', fontSize: 40 }}>8</Text>
+              <Text style={{ color: '#0179C3', fontSize: 40 }} onPress={() => this.onPress(8)}>8</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.numberCircle}>
-              <Text style={{ color: '#0179C3', fontSize: 40 }}>9</Text>
+              <Text style={{ color: '#0179C3', fontSize: 40 }} onPress={() => this.onPress(9)}>9</Text>
             </TouchableOpacity>
           </View>
           <View style={{
@@ -87,26 +153,27 @@ export default class SignIn extends Component {
             flexDirection: "row"
           }}>
             <TouchableOpacity style={{
-              width: 60,
-              height: 60,
+              width: 70,
+              height: 70,
               marginHorizontal: 5,
               marginTop: 20,
             }}>
 
             </TouchableOpacity>
             <TouchableOpacity style={styles.numberCircle}>
-              <Text style={{ color: '#0179C3', fontSize: 40 }}>0</Text>
+              <Text style={{ color: '#0179C3', fontSize: 40 }} onPress={() => this.onPress(0)}>0</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.numberCircle} 
-            onPress={() => this.props.navigation.navigate('Main')}>
-            <Image source={require('../assets/images/delete.png')} />
-          </TouchableOpacity>
+            <TouchableOpacity style={styles.numberCircle}
+              onPress={() => this.props.navigation.navigate('Index')}>
+              <Image source={require('../assets/images/delete.png')} />
+            </TouchableOpacity>
           </View>
         </View>
 
       </View>
     );
   }
+
 }
 
 SignIn.navigationOptions = {
@@ -138,6 +205,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     marginHorizontal: 5,
     marginTop: 20,
+    justifyContent: 'center', alignItems: 'center',
     borderColor: 'rgba(153, 153, 153, 0.5)',
 
   },

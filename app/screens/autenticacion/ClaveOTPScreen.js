@@ -4,23 +4,29 @@ import { Text, Image, View, StyleSheet, TouchableOpacity } from 'react-native';
 
 
 export default class ClaveOTPScreen extends Component {
-  
-  
+
+
   constructor(props) {
     super(props)
-    this.state = { count: [] }
+    this.state = { 
+      count: [] 
+    }
   }
 
   onPress = (digit) => {
-    let count = this.state.count + digit
-    if (count.length === 4) {
-
+    this.state.count = this.state.count + digit;
+    console.log(this.state.count);
+    if (this.state.count.length === 4) {
+      this.props.navigation.navigate('Index');
     }
+  }
+  delete() {
+    console.log(this.state.count);
+
   }
 
   render() {
     const { navigate } = this.props.navigation;
-    const count = this.state.count
     return (
       <View>
         <View style={styles.welcomeImage}>
@@ -36,22 +42,22 @@ export default class ClaveOTPScreen extends Component {
 
         <View style={styles.center}>
           <View style={styles.numberBox}>
-          <Text style={{
+            <Text style={{
               color: '#0179C3', fontSize: 40
-            }}>{this.state.count[0]}</Text>
+            }}>{this.state.count[0]}</Text>            
           </View>
           <View style={styles.numberBox}>
-          <Text style={{
+            <Text style={{
               color: '#0179C3', fontSize: 40
             }}>{this.state.count[1]}</Text>
           </View>
           <View style={styles.numberBox}>
-          <Text style={{
+            <Text style={{
               color: '#0179C3', fontSize: 40
             }}>{this.state.count[2]}</Text>
           </View>
           <View style={styles.numberBox}>
-          <Text style={{
+            <Text style={{
               color: '#0179C3', fontSize: 40
             }}>{this.state.count[3]}</Text>
           </View>
@@ -59,35 +65,35 @@ export default class ClaveOTPScreen extends Component {
 
         <View>
           <View style={styles.center}>
-            <TouchableOpacity  onPress={() => this.onPress(1)} style={styles.numberCircle} >
+            <TouchableOpacity onPress={() => this.onPress(1)} style={styles.numberCircle} >
               <Text style={{ color: '#0179C3', fontSize: 40 }}>1</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.numberCircle}>
+            <TouchableOpacity onPress={() => this.onPress(2)} style={styles.numberCircle}>
               <Text style={{ color: '#0179C3', fontSize: 40 }}>2</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.numberCircle}>
+            <TouchableOpacity onPress={() => this.onPress(3)} style={styles.numberCircle}>
               <Text style={{ color: '#0179C3', fontSize: 40 }}>3</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.center}>
-            <TouchableOpacity style={styles.numberCircle}>
+            <TouchableOpacity onPress={() => this.onPress(4)} style={styles.numberCircle}>
               <Text style={{ color: '#0179C3', fontSize: 40 }}>4</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.numberCircle}>
+            <TouchableOpacity onPress={() => this.onPress(5)} style={styles.numberCircle}>
               <Text style={{ color: '#0179C3', fontSize: 40 }}>5</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.numberCircle}>
+            <TouchableOpacity onPress={() => this.onPress(6)} style={styles.numberCircle}>
               <Text style={{ color: '#0179C3', fontSize: 40 }}>6</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.center}>
-            <TouchableOpacity style={styles.numberCircle}>
+            <TouchableOpacity onPress={() => this.onPress(7)} style={styles.numberCircle}>
               <Text style={{ color: '#0179C3', fontSize: 40 }}>7</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.numberCircle}>
+            <TouchableOpacity onPress={() => this.onPress(8)} style={styles.numberCircle}>
               <Text style={{ color: '#0179C3', fontSize: 40 }}>8</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.numberCircle}>
+            <TouchableOpacity onPress={() => this.onPress(9)} style={styles.numberCircle}>
               <Text style={{ color: '#0179C3', fontSize: 40 }}>9</Text>
             </TouchableOpacity>
           </View>
@@ -100,11 +106,11 @@ export default class ClaveOTPScreen extends Component {
             }}>
 
             </TouchableOpacity>
-            <TouchableOpacity style={styles.numberCircle}>
+            <TouchableOpacity onPress={() => this.onPress(0)} style={styles.numberCircle}>
               <Text style={{ color: '#0179C3', fontSize: 40 }}>0</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.numberCircle}
-              onPress={() => this.props.navigation.navigate('Index')}>
+              onPress={() => this.delete()}>
               <Image source={require('../../assets/images/delete.png')} />
             </TouchableOpacity>
           </View>

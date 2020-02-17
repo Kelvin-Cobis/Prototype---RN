@@ -2,6 +2,7 @@ import React from 'react';
  
 import { View, Text } from 'react-native';
 import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
+import { Icon } from 'native-base';
  
 class App extends React.PureComponent {
   _menu = null;
@@ -20,10 +21,10 @@ class App extends React.PureComponent {
  
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
         <Menu
           ref={this.setMenuRef}
-          button={<Text onPress={this.showMenu}>Show menu</Text>}
+          button={<Icon name='more' onPress={this.showMenu}> </Icon>}
         >
           <MenuItem onPress={this.hideMenu}>Menu item 1</MenuItem>
           <MenuItem onPress={this.hideMenu}>Menu item 2</MenuItem>

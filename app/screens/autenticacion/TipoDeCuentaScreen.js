@@ -24,14 +24,13 @@ guardarDatosyContinuar = async (values) => {
 }
 
   render() {
-    const { navigate } = this.props.navigation;
 
     return (
       <View style={{ 
         backgroundColor: '#ffffff', width: '100%', height: '100%',
       }}>
         <TouchableOpacity
-          style={{ marginTop: 35, marginLeft: 10 }}
+          style={{ marginTop: 35, marginLeft: 10 , width:60, height:20}}
           onPress={() => this.props.navigation.navigate('Index')}
         >
           <Image source={require('../../assets/images/layer1.png')} />
@@ -68,7 +67,8 @@ guardarDatosyContinuar = async (values) => {
                       borderRadius: 5
                     }}
                   />
-                  <Text style={{ marginBottom: 0, color: 'grey', fontSize: 11 }}>Tipo de documento de Identidad</Text>
+                  <Text style={{ fontFamily: 'notoserif', marginBottom: 0, color: 'grey', fontSize: 11 }}>Tipo de documento de Identidad</Text>
+                  <Text style={{  marginBottom: 0, color: 'grey', fontSize: 11 }}>Tipo de documento de Identidad</Text>
                 </View>
 
                 <View style={{ marginHorizontal: 5, marginVertical: 5 }}>

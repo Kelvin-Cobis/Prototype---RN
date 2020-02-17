@@ -9,8 +9,8 @@ export default class ConfirmationScreen extends Component {
   render() {
 
     return (
+      
       <View style={styles.contenedor}>
-
         <View style={styles.cabecera}>
           <View style={styles.center}>
             <Image source={require('../../assets/images/checked.png')} />
